@@ -15,7 +15,6 @@ import java.io.IOException;
 public class Controller extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        req.setCharacterEncoding("UTF-8");
         req.setAttribute(Action.message, Utility.getParametersFromRequest(req));
 
         ActionFactory actionFactory = new ActionFactory();
