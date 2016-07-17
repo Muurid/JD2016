@@ -3,57 +3,62 @@ package by.it.sinkevich.project.java;
 
 public enum Action {
 
-    REGISTER {
-        {
-            command = new CommandRegister();
-            startPage = "/register.jsp";
-            okPage = "/index.jsp";
-        }
-    },
     INDEX {
         {
             command = new CommandIndex();
-            okPage = "/index.jsp";
+            viewPage = "/index.jsp";
         }
     },
     LOGIN {
         {
             command = new CommandLogin();
-            startPage = "/index.jsp";
-            okPage = "/index.jsp";
+            viewPage = "/login.jsp";
+        }
+    },
+    LOGIN_SEND_FORM {
+        {
+            command = new CommandLoginSendForm();
+            viewPage = "/main.jsp";
+        }
+    },
+    REGISTER {
+        {
+            command = new CommandRegister();
+            viewPage = "/register.jsp";
+        }
+    },
+    REGISTER_SEND_FORM {
+        {
+            command = new CommandRegisterSendForm();
+            viewPage = "/login.jsp";
         }
     },
     LOGOUT {
         {
             command = new CommandLogout();
-            startPage = "/index.jsp";
-            okPage = "/index.jsp";
+            viewPage = "/index.jsp";
         }
     },
     ERROR {
         {
             command = new CommandError();
-            startPage = "/error.jsp";
-            okPage = "/error.jsp";
+            viewPage = "/error.jsp";
         }
     },
     PLACE_BET {
         {
             command = new CommandPlaceBet();
-            startPage = "/main.jsp";
-            okPage = "/main.jsp";
+            viewPage = "/main.jsp";
         }
     },
     VIEW_RACES {
         {
             command = new CommandViewRaces();
-            startPage = "/main.jsp";
-            okPage = "/main.jsp";
+            viewPage = "/main.jsp";
         }
     };
 
-    public String startPage;
-    public String okPage;
+    public String viewPage;
     public ActionCommand command;
     public static String message = "message";
 }
