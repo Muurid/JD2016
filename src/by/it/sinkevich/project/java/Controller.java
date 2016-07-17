@@ -29,7 +29,7 @@ public class Controller extends HttpServlet {
             RequestDispatcher requestDispatcher = servletContext.getRequestDispatcher(viewPage);
             requestDispatcher.forward(req, resp);
         } else {
-            viewPage = Action.ERROR.startPage;
+            viewPage = Action.ERROR.viewPage;
             resp.sendRedirect(req.getContextPath() + viewPage);
         }
     }

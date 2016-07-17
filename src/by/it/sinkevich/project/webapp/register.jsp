@@ -5,7 +5,7 @@
     <h1>Регистрация</h1>
 </div>
 
-<form class="form-horizontal" action="do?command=register" method="post" accept-charset="UTF-8">
+<form class="form-horizontal" action="do?command=register_send_form" method="post" accept-charset="UTF-8">
     <fieldset>
 
         <!-- Text input-->
@@ -23,7 +23,7 @@
             <div class="col-md-4">
                 <input id="dateOfBirth" name="dateOfBirth" type="text" placeholder="ГГГГ-ММ-ДД"
                        class="form-control input-md" required="">
-                <span class="help-block">Введите вашу дату рождения (1986-11-08)</span>
+                <span class="help-block">Введите вашу дату рождения</span>
             </div>
         </div>
 
