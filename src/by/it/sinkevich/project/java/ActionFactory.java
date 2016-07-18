@@ -5,7 +5,7 @@ import javax.servlet.http.HttpServletRequest;
 public class ActionFactory {
 
     public ActionCommand getCommandFromRequest(HttpServletRequest request) {
-        ActionCommand result = new CommandError();
+        ActionCommand result = new CommandIndex();
 
         String commandValue = request.getParameter("command");
 
@@ -14,6 +14,7 @@ public class ActionFactory {
                 Action action = Action.valueOf(commandValue.toUpperCase());
                 result = action.command;
             } catch (IllegalArgumentException e) {
+                result = new CommandError();
                 request.setAttribute("msg_error", "<b>Unknown command " + commandValue + "</b>");
                 request.setAttribute("message", "<b>Unknown command " + commandValue + "</b>");
             }

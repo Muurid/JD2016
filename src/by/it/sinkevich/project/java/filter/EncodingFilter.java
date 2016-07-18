@@ -1,5 +1,8 @@
 package by.it.sinkevich.project.java.filter;
 
+import by.it.sinkevich.project.java.dao.DAO;
+import by.it.sinkevich.project.java.dao.RaceDAO;
+
 import javax.servlet.*;
 import javax.servlet.annotation.WebFilter;
 import javax.servlet.annotation.WebInitParam;
@@ -14,6 +17,9 @@ public class EncodingFilter implements Filter {
     @Override
     public void init(FilterConfig filterConfig) throws ServletException {
         requiredEncoding = filterConfig.getInitParameter("encoding");
+        ServletContext context = filterConfig.getServletContext();
+        RaceDAO raceDAO = DAO.getDao().getRaceDAO();
+        context.setAttribute("races", raceDAO.readAll(""));
     }
 
     @Override

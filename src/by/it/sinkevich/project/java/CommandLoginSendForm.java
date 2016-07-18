@@ -13,6 +13,7 @@ import java.util.List;
 public class CommandLoginSendForm implements ActionCommand {
     @Override
     public String execute(HttpServletRequest request) {
+        String viewPage = Action.LOGIN_SEND_FORM.viewPage;
         String login = request.getParameter("login");
         String password = request.getParameter("password");
         if (Utility.isValid(login, Pattern.loginRegex) && Utility.isValid(password, Pattern.passwordRegex)) {
@@ -29,8 +30,9 @@ public class CommandLoginSendForm implements ActionCommand {
                 request.setAttribute(Action.message, message.concat("Добро пожаловать, ").concat(user.getLogin()));
             } else {
                 request.setAttribute(Action.message, message.concat("Введены неверные данные!"));
+                viewPage = Action.LOGIN.viewPage;
             }
         }
-        return Action.LOGIN_SEND_FORM.viewPage;
+        return viewPage;
     }
 }

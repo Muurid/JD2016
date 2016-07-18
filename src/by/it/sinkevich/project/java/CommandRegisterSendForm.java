@@ -12,10 +12,10 @@ import java.sql.Date;
 public class CommandRegisterSendForm implements ActionCommand {
     @Override
     public String execute(HttpServletRequest request) {
-        String page = Action.REGISTER_SEND_FORM.viewPage;
+        String viewPage = Action.REGISTER_SEND_FORM.viewPage;
 
         if (request.getParameter("name") == null) {
-            return page;
+            return viewPage;
         }
 
         String name = request.getParameter("name");
@@ -41,15 +41,16 @@ public class CommandRegisterSendForm implements ActionCommand {
             if (userDAO.create(user)) {
                 request.setAttribute(Action.message, request.getAttribute(Action.message).toString()
                         .concat("Пользователь создан! Можете авторизироваться на сайте!"));
-                page = Action.REGISTER.viewPage;
             } else {
                 request.setAttribute(Action.message, request.getAttribute(Action.message).toString()
                         .concat("Пользователь не создан! Пожалуйста введите данные заново!"));
+                viewPage = Action.REGISTER.viewPage;
             }
         } else {
             request.setAttribute(Action.message, request.getAttribute(Action.message).toString()
                     .concat("Переданы невалидные данные! Пожалуйста введите данные заново!"));
+            viewPage = Action.REGISTER.viewPage;
         }
-        return page;
+        return viewPage;
     }
 }
