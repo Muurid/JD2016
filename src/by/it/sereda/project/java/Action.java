@@ -23,6 +23,13 @@ public enum Action {
             this.okPage ="/login.jsp";
         }
     },
+    ALLUSERS {
+        {
+            this.command = new CommandAllUsers();
+            this.inPage="/allusers.jsp";
+            this.okPage ="/allusers.jsp";
+        }
+    },
     CREATERENT {
         {
             this.command = new CommandCreateRent();
