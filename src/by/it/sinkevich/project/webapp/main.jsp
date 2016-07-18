@@ -1,5 +1,6 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" pageEncoding="UTF-8" %>
 <%@ include file="include/header.jsp" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 <div class="container">
     <div class="row">
@@ -42,7 +43,36 @@
     <div class="row">
         <div class="col-md-9">
             <h3>Список забегов</h3>
-            <p>${races}</p>
+
+            <div class="row">
+                <div class="col-md-1">Номер забега</div>
+                <div class="col-md-2">Время забега</div>
+                <div class="col-md-1">Лошадь1</div>
+                <div class="col-md-1">Лошадь2</div>
+                <div class="col-md-1">Лошадь3</div>
+                <div class="col-md-1">Лошадь4</div>
+                <div class="col-md-1">Лошадь5</div>
+                <div class="col-md-1">Лошадь6</div>
+                <div class="col-md-1">Лошадь7</div>
+                <div class="col-md-1">Лошадь8</div>
+                <div class="col-md-1">Победитель</div>
+            </div>
+
+            <c:forEach items="${races}" var="race">
+                <div class="row">
+                    <div class="col-md-1">${race.id}</div>
+                    <div class="col-md-2">${race.time}</div>
+                    <div class="col-md-1">${race.horse1}</div>
+                    <div class="col-md-1">${race.horse2}</div>
+                    <div class="col-md-1">${race.horse3}</div>
+                    <div class="col-md-1">${race.horse4}</div>
+                    <div class="col-md-1">${race.horse5}</div>
+                    <div class="col-md-1">${race.horse6}</div>
+                    <div class="col-md-1">${race.horse7}</div>
+                    <div class="col-md-1">${race.horse8}</div>
+                    <div class="col-md-1">${race.winner}</div>
+                </div>
+            </c:forEach>
         </div>
 
         <div class="col-md-3">

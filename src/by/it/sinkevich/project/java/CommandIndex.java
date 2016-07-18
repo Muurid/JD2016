@@ -15,7 +15,7 @@ public class CommandIndex implements ActionCommand {
         HttpSession session = request.getSession(true);
         User sessionUser = (User) session.getAttribute("user");
 
-        if (sessionUser!= null) {
+        if (session.getAttribute("user") != null) {
             return Action.LOGIN_SEND_FORM.viewPage;
         }
 
