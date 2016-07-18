@@ -2,6 +2,13 @@ package by.it.sereda.project.java;
 
 
 public enum Action {
+    INDEX {
+        {
+            this.command = new CommandIndex();
+            this.inPage="/index.jsp";
+            this.okPage ="/index.jsp";
+        }
+    },
     SIGNUP {
         {
             this.command = new CommandSignUp();
