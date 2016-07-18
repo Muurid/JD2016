@@ -1,92 +1,93 @@
 package by.it.sergeev.project.java.beans;
 
 public class Ad {
-    private int id;
-    private String electronics;
-    private String manufacturer;
-    private String name;
-    private String model;
-    private int price;
-    private String description;
-    private int fk_user;
+
+    private int ID;
+    private String Electronics;
+    private String Manufacturer;
+    private String Name;
+    private String Model;
+    private double Price;
+    private String Description;
+    private int FK_Users;
 
     public Ad() {
 
     }
 
-    public Ad(int id, String electronics, String manufacturer, String name, String model, int price, String description, int fk_user) {
-        this.id = id;
-        this.electronics = electronics;
-        this.manufacturer = manufacturer;
-        this.name = name;
-        this.model = model;
-        this.price = price;
-        this.description = description;
-        this.fk_user = fk_user;
+    public Ad(int ID, String electronics, String manufacturer, String name, String model, double price, String description, int FK_Users) {
+        this.ID = ID;
+        this.Electronics = electronics;
+        this.Manufacturer = manufacturer;
+        this.Name = name;
+        this.Model = model;
+        this.Price = price;
+        this.Description = description;
+        this.FK_Users = FK_Users;
     }
 
-    public int getId() {
-        return id;
+    public int getID() {
+        return ID;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public void setID(int ID) {
+        this.ID = ID;
     }
 
     public String getElectronics() {
-        return electronics;
+        return Electronics;
     }
 
     public void setElectronics(String electronics) {
-        this.electronics = electronics;
+        Electronics = electronics;
     }
 
     public String getManufacturer() {
-        return manufacturer;
+        return Manufacturer;
     }
 
     public void setManufacturer(String manufacturer) {
-        this.manufacturer = manufacturer;
+        Manufacturer = manufacturer;
     }
 
     public String getName() {
-        return name;
+        return Name;
     }
 
     public void setName(String name) {
-        this.name = name;
+        Name = name;
     }
 
     public String getModel() {
-        return model;
+        return Model;
     }
 
     public void setModel(String model) {
-        this.model = model;
+        Model = model;
     }
 
-    public int getPrice() {
-        return price;
+    public double getPrice() {
+        return Price;
     }
 
-    public void setPrice(int price) {
-        this.price = price;
+    public void setPrice(double price) {
+        Price = price;
     }
 
     public String getDescription() {
-        return description;
+        return Description;
     }
 
     public void setDescription(String description) {
-        this.description = description;
+        Description = description;
     }
 
-    public int getFk_user() {
-        return fk_user;
+    public int getFK_Users() {
+        return FK_Users;
     }
 
-    public void setFk_user(int fk_user) {
-        this.fk_user = fk_user;
+    public void setFK_Users(int FK_Users) {
+        this.FK_Users = FK_Users;
     }
 
     @Override
@@ -96,44 +97,43 @@ public class Ad {
 
         Ad ad = (Ad) o;
 
-        if (id != ad.id) return false;
-        if (price != ad.price) return false;
-        if (fk_user != ad.fk_user) return false;
-        if (electronics != null ? !electronics.equals(ad.electronics) : ad.electronics != null) return false;
-        if (manufacturer != null ? !manufacturer.equals(ad.manufacturer) : ad.manufacturer != null) return false;
-        if (name != null ? !name.equals(ad.name) : ad.name != null) return false;
-        if (model != null ? !model.equals(ad.model) : ad.model != null) return false;
-        return description != null ? description.equals(ad.description) : ad.description == null;
+        if (ID != ad.ID) return false;
+        if (Double.compare(ad.Price, Price) != 0) return false;
+        if (FK_Users != ad.FK_Users) return false;
+        if (Electronics != null ? !Electronics.equals(ad.Electronics) : ad.Electronics != null) return false;
+        if (Manufacturer != null ? !Manufacturer.equals(ad.Manufacturer) : ad.Manufacturer != null) return false;
+        if (Name != null ? !Name.equals(ad.Name) : ad.Name != null) return false;
+        if (Model != null ? !Model.equals(ad.Model) : ad.Model != null) return false;
+        return Description != null ? Description.equals(ad.Description) : ad.Description == null;
 
     }
 
     @Override
     public int hashCode() {
-        int result = id;
-        result = 31 * result + (electronics != null ? electronics.hashCode() : 0);
-        result = 31 * result + (manufacturer != null ? manufacturer.hashCode() : 0);
-        result = 31 * result + (name != null ? name.hashCode() : 0);
-        result = 31 * result + (model != null ? model.hashCode() : 0);
-        result = 31 * result + price;
-        result = 31 * result + (description != null ? description.hashCode() : 0);
-        result = 31 * result + fk_user;
+        int result = ID;
+        long temp;
+        result = 31 * result + (Electronics != null ? Electronics.hashCode() : 0);
+        result = 31 * result + (Manufacturer != null ? Manufacturer.hashCode() : 0);
+        result = 31 * result + (Name != null ? Name.hashCode() : 0);
+        result = 31 * result + (Model != null ? Model.hashCode() : 0);
+        temp = Double.doubleToLongBits(Price);
+        result = 31 * result + (int) (temp ^ (temp >>> 32));
+        result = 31 * result + (Description != null ? Description.hashCode() : 0);
+        result = 31 * result + FK_Users;
         return result;
     }
 
     @Override
     public String toString() {
         return "Ad{" +
-                "id=" + id +
-                ", electronics='" + electronics + '\'' +
-                ", manufacturer='" + manufacturer + '\'' +
-                ", name='" + name + '\'' +
-                ", model='" + model + '\'' +
-                ", price=" + price +
-                ", description='" + description + '\'' +
-                ", fk_user=" + fk_user +
+                "ID=" + ID +
+                ", Electronics='" + Electronics + '\'' +
+                ", Manufacturer='" + Manufacturer + '\'' +
+                ", Name='" + Name + '\'' +
+                ", Model='" + Model + '\'' +
+                ", Price=" + Price +
+                ", Description='" + Description + '\'' +
+                ", FK_Users=" + FK_Users +
                 '}';
     }
 }
-
-
-

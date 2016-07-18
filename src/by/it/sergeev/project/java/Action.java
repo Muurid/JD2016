@@ -1,7 +1,14 @@
 package by.it.sergeev.project.java;
 
 
-enum Action {
+public enum Action {
+    INDEX {
+        {
+            this.command = new CommandIndex();
+            this.inPage="/index.jsp";
+            this.okPage ="/index.jsp";
+        }
+    },
     SIGNUP {
         {
             this.command = new CommandSignUp();
@@ -16,21 +23,40 @@ enum Action {
             this.okPage ="/main.jsp";
         }
     },
-    LOGOUT {
+    PROFILE {
         {
-            this.command = new CommandLogout();
-            this.inPage="/logout.jsp";
+            this.command = new CommandProfile();
+            this.inPage="/profile.jsp";
             this.okPage ="/login.jsp";
+        }
+    },
+    CREATEAD {
+        {
+            this.command = new CommandCreateAd();
+            this.inPage="/createad.jsp";
+            this.okPage ="/";
+        }
+    },
+    ALLUSERS {
+        {
+            this.command = new CommandAllUsers();
+            this.inPage="/allusers.jsp";
+            this.okPage ="/allusers.jsp";
         }
     },
     ERROR {
         {
-            this.command = new CommandLogout();
-        }
+            //это не требуется, т.к. и так стоит в инициализации
+            //this.command = new CommandError();
+            //String inPage="/error.jsp";
+            //String okPage ="/error.jsp";
+                    }
     };
+
+    //инициализация полей по умолчанию
+    protected ActionCommand command=new CommandError();
     public String inPage="/error.jsp";
     public String okPage ="/error.jsp";
-    public ActionCommand command;
 
     public ActionCommand getCurrentCommand() {
         return command;

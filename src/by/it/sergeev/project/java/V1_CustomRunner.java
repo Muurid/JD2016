@@ -26,7 +26,7 @@ public class V1_CustomRunner {
         }
         showUsers();
 
-        User user = new User(0,"spec", "12345678", "siivanov@mail.ru","Dmitry","Sergeev","Minsk",2);
+        User user = new User(0,"Сергей Иванович", "siivanov", "dfdfd","dfdfdf","dfd","siivanov@mail.ru",2);
         //добавим пользователя
         if (dao.user.create(user)) System.out.println("\nДобавлен:" + user);
         showUsers();

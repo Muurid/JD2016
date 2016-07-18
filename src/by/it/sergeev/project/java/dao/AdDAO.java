@@ -1,6 +1,5 @@
 package by.it.sergeev.project.java.dao;
 
-
 import by.it.sergeev.project.java.beans.Ad;
 
 import java.sql.Connection;
@@ -26,17 +25,17 @@ public class AdDAO extends AbstractDAO implements InterfaceDAO<Ad> {
         //локаль нужна,т.к. есть дробные числа. Их нужно указывать через точку
         String sql = String.format(Locale.ENGLISH,
                 "insert INTO ad(Electronics,Manufacturer,Name,Model,Price,Description,FK_Users)" +
-                        "\n values('%s', '%s', '%s', '%s', '%d', '%s', '%d');",
+                        "\n values('%s', '%s', '%s', '%s', '%.3f', '%s' ,'%d');",
                 ad.getElectronics(),
                 ad.getManufacturer(),
                 ad.getName(),
                 ad.getModel(),
                 ad.getPrice(),
                 ad.getDescription(),
-                ad.getFk_user()
+                ad.getFK_Users()
         );
-        ad.setId(executeUpdate(sql));
-        return (ad.getId() > 0);
+        ad.setID(executeUpdate(sql));
+        return (ad.getID() > 0);
     }
 
     @Override
@@ -44,13 +43,13 @@ public class AdDAO extends AbstractDAO implements InterfaceDAO<Ad> {
         //локаль нужна,т.к. есть дробные числа. Их нужно указывать через точку
         String sql = String.format(Locale.ENGLISH,
                 "UPDATE `ad` SET " +
-                        "`Electronics`='%s' " +
+                        "`Electronics`='%s'" +
                         ",`Manufacturer`='%s'" +
                         ",`Name`='%s'" +
-                        ",`Model`='%s'" +
-                        ",`Price`='%d'" +
-                        ",`Description`='%s''" +
-                        ",`FK_Users`=%d " +
+                        ",`Model`='%s'"+
+                        ",`Price`='%.3f'" +
+                        ",`Description`='%s'" +
+                        ",`FK_Users`= %d" +
                         " WHERE `ad`.`ID` = %d",
                 ad.getElectronics(),
                 ad.getManufacturer(),
@@ -58,8 +57,8 @@ public class AdDAO extends AbstractDAO implements InterfaceDAO<Ad> {
                 ad.getModel(),
                 ad.getPrice(),
                 ad.getDescription(),
-                ad.getFk_user(),
-                ad.getId()
+                ad.getFK_Users(),
+                ad.getID()
         );
 
         return (0 < executeUpdate(sql));
@@ -68,7 +67,7 @@ public class AdDAO extends AbstractDAO implements InterfaceDAO<Ad> {
     @Override
     public boolean delete(Ad ad) {
         String sql = String.format(
-                "DELETE FROM `ad` WHERE `ad`.`ID`=%d;", ad.getId()
+                "DELETE FROM `ad` WHERE `ad`.`ID`=%d;", ad.getID()
         );
         return (0 < executeUpdate(sql));
     }
@@ -83,14 +82,14 @@ public class AdDAO extends AbstractDAO implements InterfaceDAO<Ad> {
             ResultSet rs = statement.executeQuery(sql);
             while (rs.next()) {
                 Ad ad = new Ad();
-                ad.setId(rs.getInt("ID"));
+                ad.setID(rs.getInt("ID"));
                 ad.setElectronics(rs.getString("Electronics"));
                 ad.setManufacturer(rs.getString("Manufacturer"));
                 ad.setName(rs.getString("Name"));
                 ad.setModel(rs.getString("Model"));
-                ad.setPrice(rs.getInt("Price"));
+                ad.setPrice(rs.getDouble("Price"));
                 ad.setDescription(rs.getString("Description"));
-                ad.setFk_user(rs.getInt("FK_User"));
+                ad.setFK_Users(rs.getInt("FK_Users"));
                 ads.add(ad);
             }
         } catch (SQLException e) {

@@ -22,11 +22,9 @@ public class UserDAO extends AbstractDAO implements InterfaceDAO<User> {
                 User user = new User();
                 user.setId(rs.getInt("ID"));
                 user.setLogin(rs.getString("login"));
-                user.setPassword(rs.getString("password"));
                 user.setEmail(rs.getString("email"));
+                user.setPassword(rs.getString("password"));
                 user.setName(rs.getString("name"));
-                user.setLastname(rs.getString("lastname"));
-                user.setAddress(rs.getString("address"));
                 user.setFk_Role(rs.getInt("FK_Role"));
                 users.add(user);
             }
@@ -47,9 +45,9 @@ public class UserDAO extends AbstractDAO implements InterfaceDAO<User> {
     @Override
     public boolean create(User user) {
         String sql = String.format(
-                "insert INTO users(Login,Password,Email, Name, LastName, Adress, FK_Role)" +
+                "insert INTO users(Login,Password,Email,Name,Lastname,Address,FK_Role)" +
                         " values('%s','%s','%s','%s','%s','%s',%d);",
-                user.getLogin(), user.getPassword(), user.getEmail(), user.getName(), user.getLastname(), user.getAddress(), user.getFk_Role()
+                user.getLogin(), user.getPassword(), user.getEmail(),user.getName(),user.getLastname(),user.getAddress(), user.getFk_Role()
         );
         user.setId(executeUpdate(sql));
         return (user.getId()>0);
@@ -57,8 +55,8 @@ public class UserDAO extends AbstractDAO implements InterfaceDAO<User> {
     @Override
     public boolean update(User user) {
         String sql = String.format(
-                "UPDATE `users` SET `Login` = '%s', `Password` = '%s', `Email` = '%s',`Name` = '%s',`LastName` = '%s',`Adress` = '%s', `FK_Role` = '%d' WHERE `users`.`ID` = %d",
-                user.getLogin(), user.getPassword(), user.getEmail(), user.getName(), user.getLastname(), user.getAddress(),user.getFk_Role(), user.getId()
+                "UPDATE `users` SET `Login` = '%s', `Password` = '%s', `Email` = '%s',`Name` = '%s',`Lastname` = '%s',`Address` = '%s', `FK_Role` = '%d' WHERE `users`.`ID` = %d",
+                user.getLogin(), user.getPassword(), user.getEmail(),user.getName(),user.getLastname(),user.getAddress(), user.getFk_Role(), user.getId()
         );
         return (0 < executeUpdate(sql));
     }
