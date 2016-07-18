@@ -15,8 +15,8 @@ public class ActionFactory {
                 result = action.command;
             } catch (IllegalArgumentException e) {
                 result = new CommandError();
-                request.setAttribute("msg_error", "<b>Unknown command " + commandValue + "</b>");
-                request.setAttribute("message", "<b>Unknown command " + commandValue + "</b>");
+                request.setAttribute(Action.errorMessage, "<b>Unknown command " + commandValue + "</b>");
+                request.setAttribute(Action.message, "<b>Unknown command " + commandValue + "</b>");
             }
         }
         return result;

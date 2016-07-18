@@ -16,6 +16,7 @@ import java.util.List;
  * @author Sinkevich Denis
  */
 public class RaceDAO implements InterfaceDAO<Race> {
+
     @Override
     public Race read(int id) {
         List<Race> races = readAll("WHERE id = " + id);

@@ -8,15 +8,13 @@ import by.it.sinkevich.project.java.util.Utility;
 
 import javax.servlet.http.HttpServletRequest;
 import java.sql.Date;
+import java.util.List;
 
 public class CommandRegisterSendForm implements ActionCommand {
+
     @Override
     public String execute(HttpServletRequest request) {
         String viewPage = Action.REGISTER_SEND_FORM.viewPage;
-
-        if (request.getParameter("name") == null) {
-            return viewPage;
-        }
 
         String name = request.getParameter("name");
         String dateOfBirth = request.getParameter("dateOfBirth");
@@ -38,17 +36,19 @@ public class CommandRegisterSendForm implements ActionCommand {
             user.setPassword(password);
 
             UserDAO userDAO = DAO.getDao().getUserDAO();
+            List<User> users = userDAO.readAll("WHERE login = '" + user.getLogin() + "'");
+            if (users.size() > 0) {
+                request.setAttribute(Action.errorMessage, "Пользователь с таким логином уже существует! Пожалуйста введите данные заново!");
+                return Action.REGISTER.viewPage;
+            }
             if (userDAO.create(user)) {
-                request.setAttribute(Action.message, request.getAttribute(Action.message).toString()
-                        .concat("Пользователь создан! Можете авторизироваться на сайте!"));
+                request.setAttribute(Action.message, "Пользователь создан! Можете авторизироваться на сайте!");
             } else {
-                request.setAttribute(Action.message, request.getAttribute(Action.message).toString()
-                        .concat("Пользователь не создан! Пожалуйста введите данные заново!"));
+                request.setAttribute(Action.errorMessage, "Пользователь не создан! Пожалуйста введите данные заново!");
                 viewPage = Action.REGISTER.viewPage;
             }
         } else {
-            request.setAttribute(Action.message, request.getAttribute(Action.message).toString()
-                    .concat("Переданы невалидные данные! Пожалуйста введите данные заново!"));
+            request.setAttribute(Action.errorMessage, "Переданы невалидные данные! Пожалуйста введите данные заново!");
             viewPage = Action.REGISTER.viewPage;
         }
         return viewPage;

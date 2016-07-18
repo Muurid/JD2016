@@ -9,6 +9,7 @@ import java.util.List;
  * @author Sinkevich Denis
  */
 interface InterfaceDAO<TYPE> {
+
     //READ чтение отдельной сущности
     TYPE read(int id);
 

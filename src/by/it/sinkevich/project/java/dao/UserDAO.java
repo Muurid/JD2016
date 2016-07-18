@@ -16,6 +16,7 @@ import java.util.List;
  * @author Sinkevich Denis
  */
 public class UserDAO implements InterfaceDAO<User> {
+
     @Override
     public User read(int id) {
         List<User> users = readAll("WHERE id = " + id);

@@ -61,4 +61,5 @@ public enum Action {
     public String viewPage;
     public ActionCommand command;
     public static String message = "message";
+    public static String errorMessage = "errorMessage";
 }

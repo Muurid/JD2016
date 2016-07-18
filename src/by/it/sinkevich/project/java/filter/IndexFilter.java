@@ -9,6 +9,7 @@ import java.io.IOException;
 
 @WebFilter(urlPatterns = {"/*"})
 public class IndexFilter implements Filter {
+
     @Override
     public void init(FilterConfig filterConfig) throws ServletException {
         ServletContext context = filterConfig.getServletContext();
