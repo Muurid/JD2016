@@ -39,17 +39,14 @@ public class CommandRegistration implements ActionCommand {
             //Проверка на создание юзера
             if (dao.getUserDAO().create(user)) {
                 request.setAttribute(Action.msgMessage,"User was created. Enter data for authorization.");
-                request.setAttribute("type","success");
                 page = Action.REGISTRATION.okPage;
             } else {
                 request.setAttribute(Action.msgMessage,"User wasn't created. Enter data .");
-                request.setAttribute("type","danger");
                 page = Action.REGISTRATION.inPage;
             }
         }
         else {
             request.setAttribute(Action.msgMessage,"Not valid data! Repeat, please, input.");
-            request.setAttribute("type","danger");
             page = Action.REGISTRATION.inPage;
         }
         return page;

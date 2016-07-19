@@ -38,7 +38,6 @@ public class CommandLogin implements ActionCommand {
                 }
                 if (user == null) { //Вывод сообщение при отсутствии юзера в БД
                     request.setAttribute(Action.msgMessage, "Wrong data! Repeat, please, input or make registration.");
-                    request.setAttribute("type","danger");
                     page = Action.LOGIN.inPage;
                 } else {
                     //Создадим сессию при ее отсутствии
@@ -48,12 +47,10 @@ public class CommandLogin implements ActionCommand {
                     session.setAttribute("login",user.getNickname());
                     session.setAttribute("password",user.getPassword());
                     request.setAttribute(Action.msgMessage, "Welcome, " + user.getNickname());
-                    request.setAttribute("type","success");
                     page = Action.LOGIN.okPage;
                 }
             } else {
                 request.setAttribute(Action.msgMessage, "Not valid data! Repeat, please, input.");
-                request.setAttribute("type","danger");
                 page = Action.LOGIN.inPage;
             }
             return page;

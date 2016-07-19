@@ -6,13 +6,13 @@
 <div class="main container">
     <div class="row">
         <div class="pull-right">
-            (<a  href="do?command=Profile" type="button" class="btn btn-link">
-            <c:out value="${user.nickname}" /></a>)
-            <a href="do?command=New_Account" class="btn btn-success" type="button">Create Account</a>
+            (<button type="button" class="btn btn-link">
+            <c:out value="${user.nickname}" /></button>)</button>
+            <a href="do?command=New_Account" class="btn btn-default" type="button">Create Account</a>
         </div>
     </div>
     <div class="row">
-        <div class="col-sm-offset-5">
+        <div class="col-sm-offset-3">
             <h2>Accounts</h2>
         </div>
     </div>
@@ -36,16 +36,16 @@
                 <td>
                     <div class="btn-group">
 
-                        <a href="do?command=Refill&id_account=${elem.idAccount}" class="btn btn-default btn-sm" data-toggle="tooltip" title="Refill" aria-label="Left Align">
+                        <a href="do?command=Refill&id_account=${elem.idAccount}" class="btn btn-default btn-sm" aria-label="Left Align">
                             <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
                         </a>
-                        <a href="do?command=Pay&id_account=${elem.idAccount}" class="btn btn-default btn-sm" data-toggle="tooltip" title="Pay" aria-label="Center Align">
+                        <a href="do?command=Pay&id_account=${elem.idAccount}" class="btn btn-default btn-sm" aria-label="Center Align">
                             <span class="glyphicon glyphicon-share-alt" aria-hidden="true"></span>
                         </a>
-                        <a href="do?command=Block&id_account=${elem.idAccount}&reference=1" class="btn btn-default btn-sm" data-toggle="tooltip" title="Block" aria-label="Right Align">
+                        <a href="do?command=Block&id_account=${elem.idAccount}&reference=1" class="btn btn-default btn-sm" aria-label="Right Align">
                             <span class="glyphicon glyphicon-remove-circle" aria-hidden="true"></span>
                         </a>
-                        <a href="do?command=Payments&id_account=${elem.idAccount}" class="btn btn-default btn-sm" data-toggle="tooltip" title="Payments" aria-label="Justify">
+                        <a href="do?command=Payments&id_account=${elem.idAccount}" class="btn btn-default btn-sm" aria-label="Justify">
                             <span class="glyphicon glyphicon-list" aria-hidden="true"></span>
                         </a>
                     </div>

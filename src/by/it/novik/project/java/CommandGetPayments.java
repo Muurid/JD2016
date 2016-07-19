@@ -31,14 +31,12 @@ public class CommandGetPayments implements ActionCommand {
                    "Where FK_Account_Source = " + id_account);
             //Integer.parseInt(id_account)
             if (!listPayments.isEmpty()) {
-                request.setAttribute(Action.msgMessage, "List of payments for account #" + id_account);
-                request.setAttribute("type","success");
+                request.setAttribute(Action.msgMessage, "List of payments for account " + id_account);
                 request.setAttribute("listPayments", listPayments);
                 return page;
             }
             else {
                 request.setAttribute(Action.msgMessage, "Payments don't exist.");
-                request.setAttribute("type","info");
                 return page;
             }
 
@@ -46,12 +44,10 @@ public class CommandGetPayments implements ActionCommand {
         List<Payment> listPayments = dao.getPaymentDAO().getAll(user.getIdUser());
         if (!listPayments.isEmpty()) {
             request.setAttribute(Action.msgMessage, "List of payments for user " + user.getNickname());
-            request.setAttribute("type","success");
             request.setAttribute("listPayments", listPayments);
         }
         else {
             request.setAttribute(Action.msgMessage, "Payments don't exist.");
-            request.setAttribute("type","info");
         }
 
         return page;

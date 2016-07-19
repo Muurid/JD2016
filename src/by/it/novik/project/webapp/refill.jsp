@@ -4,8 +4,9 @@
 
 <div class="main container">
     <div class="row">
-    <legend> <h3>Refill the account</h3></legend>
-
+        <div class="col-sm-offset-3">
+            <h2>Refill the account</h2>
+        </div>
     </div>
     <div class="row">
         <div class="col-sm-6 col-sm-offset-3">
@@ -22,11 +23,9 @@
                         <div class="input-group">
                             <input type="text" class="form-control" id="amount" name="amount">
                             <span class="input-group-btn">
-                                <button class="btn btn-success" type="submit">Refill</button>
+                                <button class="btn btn-default" type="submit">Refill</button>
                             </span>
-
                         </div>
-                        <span class="help-block">Enter amount from 1 to 4 characters (integer) </span>
                     </div>
                 </div>
             </form>
