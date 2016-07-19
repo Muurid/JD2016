@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Хост: 127.0.0.1:2016
--- Время создания: Июл 07 2016 г., 11:28
+-- Время создания: Июл 19 2016 г., 11:45
 -- Версия сервера: 10.1.10-MariaDB
 -- Версия PHP: 5.6.15
 
@@ -38,8 +38,8 @@ CREATE TABLE `account` (
 --
 
 INSERT INTO `account` (`ID`, `Balans`, `State`, `FK_Users`) VALUES
-(1, '250', 'Working', 1),
-(2, '547', 'Working', 1),
+(1, '1245', 'Working', 1),
+(2, '1557', 'Working', 1),
 (3, '3456', 'Working', 1);
 
 -- --------------------------------------------------------
@@ -98,7 +98,7 @@ CREATE TABLE `users` (
   `Last_Name` varchar(20) NOT NULL,
   `Passport` varchar(100) NOT NULL,
   `Address` varchar(100) NOT NULL,
-  `Phone` varchar(13) NOT NULL,
+  `Phone` varchar(17) NOT NULL,
   `Login` varchar(50) NOT NULL,
   `Password` varchar(50) NOT NULL,
   `Email` varchar(100) NOT NULL,
@@ -110,8 +110,8 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`ID`, `First_Name`, `Middle_Name`, `Last_Name`, `Passport`, `Address`, `Phone`, `Login`, `Password`, `Email`, `FK_Role`) VALUES
-(1, 'Иван', 'Иванович', 'Иванов', 'MC234567, 15.08.2010', 'г. Жодино, ул. Калиновского 5-8', '+375296785643', 'ivan', '123', 'ivanov_iv@gmail.com', 2),
-(2, 'Петр', 'Петрович', 'Петров', 'MC 456789, 12.06.1999', 'г. Минск, ул. Энгельса 6-8', '+375447774323', 'petr', '456', 'petrov_p@gmail.com', 1);
+(1, 'Иван', 'Иванович', 'Иванов', 'MC234567, 15.08.2010', 'г. Жодино, ул. Калиновского 5-8', '+375296785643', 'ivan', '202cb962ac59075b964b07152d234b70', 'ivanov_iv@gmail.com', 2),
+(2, 'Петр', 'Петрович', 'Петров', 'MC 456789, 12.06.1999', 'г. Минск, ул. Энгельса 6-8', '+375447774323', 'petr', '250cf8b51c773f3f8dc8b4be867a9a02', 'petrov_p@gmail.com', 1);
 
 --
 -- Индексы сохранённых таблиц
@@ -153,12 +153,12 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT для таблицы `account`
 --
 ALTER TABLE `account`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 --
 -- AUTO_INCREMENT для таблицы `payment`
 --
 ALTER TABLE `payment`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 --
 -- AUTO_INCREMENT для таблицы `role`
 --
@@ -168,7 +168,7 @@ ALTER TABLE `role`
 -- AUTO_INCREMENT для таблицы `users`
 --
 ALTER TABLE `users`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 --
 -- Ограничения внешнего ключа сохраненных таблиц
 --

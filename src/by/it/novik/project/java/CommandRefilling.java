@@ -37,18 +37,21 @@ public class CommandRefilling implements ActionCommand {
                 Account account = dao.getAccountDAO().read(id);
                 Double result = account.getBalans() + refill;
                 account.setBalans(result);
-                //Обновляем поле Balans счета
+                //Обновляем поле Balance счета
                 if (dao.getAccountDAO().update(account)) {
                     request.setAttribute(Action.msgMessage,"Balans was refilled.");
+                    request.setAttribute("type","success");
                     page = Action.REFILL.okPage;
                 }
                 else {
-                    request.setAttribute(Action.msgMessage,"Balans wasn't refilled. Enter amount .");
+                    request.setAttribute(Action.msgMessage,"Balans wasn't refilled. Enter amount.");
+                    request.setAttribute("type","danger");
                     page = Action.REFILL.inPage;
                 }
 
         } else {
                 request.setAttribute(Action.msgMessage,"Not valid data! Repeat, please, input.");
+                request.setAttribute("type","danger");
                 page = Action.REFILL.inPage;
             }
 
