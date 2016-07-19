@@ -62,6 +62,12 @@ public enum Action {
             command = new CommandPlaceBetSendForm();
             viewPage = "/main.jsp";
         }
+    },
+    VIEW_CLIENTS {
+        {
+            command = new CommandViewClients();
+            viewPage = "/clients.jsp";
+        }
     };
 
     public String viewPage;

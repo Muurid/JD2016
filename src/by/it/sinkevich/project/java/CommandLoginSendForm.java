@@ -31,7 +31,7 @@ public class CommandLoginSendForm implements ActionCommand {
             if (user != null) {
                 HttpSession session = request.getSession(true);
                 session.setAttribute("sessionUser", user);
-                Role sessionUserRole = DAO.getDao().getRoleDAO().read(user.getId());
+                Role sessionUserRole = DAO.getDao().getRoleDAO().read(user.getFk_role());
                 session.setAttribute("sessionUserRole", sessionUserRole);
                 request.setAttribute(Action.message, message.concat("Добро пожаловать, ").concat(user.getLogin()));
                 return Action.MAIN.command.execute(request);
