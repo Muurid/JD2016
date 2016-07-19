@@ -28,7 +28,7 @@
           </div>
           <div class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
-              <li><a href="do?command=CreateRent">Создать объявление</a></li>
+              <li><a href="do?command=CreateRent">Предложить номер</a></li>
               <li><a href="do?command=AllUsers">Список пользователей</a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
