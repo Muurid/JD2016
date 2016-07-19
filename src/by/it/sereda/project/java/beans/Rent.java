@@ -5,25 +5,25 @@ public class Rent {
     private int ID;
     private int RoomCount;
     private double Price;
-    private double Area;
+    private double Rating;
     private int Floor;
-    private int Floors;
+    private int Guests;
     private String Address;
-    private String Description;
+    private String City;
     private int FK_Users;
 
     public Rent() {
     }
 
-    public Rent(int ID, int roomCount, double price, double area, int floor, int floors, String address, String description, int FK_Users) {
+    public Rent(int ID, int roomCount, double price, double rating, int floor, int guests, String address, String city, int FK_Users) {
         this.ID = ID;
         RoomCount = roomCount;
         Price = price;
-        Area = area;
+        Rating = rating;
         Floor = floor;
-        Floors = floors;
+        Guests = guests;
         Address = address;
-        Description = description;
+        City = City;
         this.FK_Users = FK_Users;
     }
 
@@ -53,12 +53,12 @@ public class Rent {
         Price = price;
     }
 
-    public double getArea() {
-        return Area;
+    public double getRating() {
+        return Rating;
     }
 
-    public void setArea(double area) {
-        Area = area;
+    public void setRating(double rating) {
+        Rating = rating;
     }
 
     public int getFloor() {
@@ -69,12 +69,12 @@ public class Rent {
         Floor = floor;
     }
 
-    public int getFloors() {
-        return Floors;
+    public int getGuests() {
+        return Guests;
     }
 
-    public void setFloors(int floors) {
-        Floors = floors;
+    public void setGuests(int guests) {
+        Guests = guests;
     }
 
     public String getAddress() {
@@ -85,12 +85,12 @@ public class Rent {
         Address = address;
     }
 
-    public String getDescription() {
-        return Description;
+    public String getCity() {
+        return City;
     }
 
-    public void setDescription(String description) {
-        Description = description;
+    public void setCity(String city) {
+        City = city;
     }
 
     public int getFK_Users() {
@@ -107,11 +107,11 @@ public class Rent {
                 "ID=" + ID +
                 ", RoomCount=" + RoomCount +
                 ", Price=" + Price +
-                ", Area=" + Area +
+                ", Rating=" + Rating +
                 ", Floor=" + Floor +
-                ", Floors=" + Floors +
+                ", Guests=" + Guests +
                 ", Address='" + Address + '\'' +
-                ", Description='" + Description + '\'' +
+                ", City='" + City + '\'' +
                 ", FK_Users=" + FK_Users +
                 "}\n";
     }
@@ -126,12 +126,12 @@ public class Rent {
         if (ID != rent.ID) return false;
         if (RoomCount != rent.RoomCount) return false;
         if (Double.compare(rent.Price, Price) != 0) return false;
-        if (Double.compare(rent.Area, Area) != 0) return false;
+        if (Double.compare(rent.Rating, Rating) != 0) return false;
         if (Floor != rent.Floor) return false;
-        if (Floors != rent.Floors) return false;
+        if (Guests != rent.Guests) return false;
         if (FK_Users != rent.FK_Users) return false;
         if (Address != null ? !Address.equals(rent.Address) : rent.Address != null) return false;
-        return Description != null ? Description.equals(rent.Description) : rent.Description == null;
+        return City != null ? City.equals(rent.City) : rent.City == null;
 
     }
 
@@ -143,12 +143,12 @@ public class Rent {
         result = 31 * result + RoomCount;
         temp = Double.doubleToLongBits(Price);
         result = 31 * result + (int) (temp ^ (temp >>> 32));
-        temp = Double.doubleToLongBits(Area);
+        temp = Double.doubleToLongBits(Rating);
         result = 31 * result + (int) (temp ^ (temp >>> 32));
         result = 31 * result + Floor;
-        result = 31 * result + Floors;
+        result = 31 * result + Guests;
         result = 31 * result + (Address != null ? Address.hashCode() : 0);
-        result = 31 * result + (Description != null ? Description.hashCode() : 0);
+        result = 31 * result + (City != null ? City.hashCode() : 0);
         result = 31 * result + FK_Users;
         return result;
     }

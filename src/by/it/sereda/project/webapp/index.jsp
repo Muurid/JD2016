@@ -4,8 +4,8 @@
 
       <!-- Основное содержимое -->
       <div class="page-header">
-        <h1>Все объявления</h1>
-        <p class="lead">Пример макета для вывода данных в виде таблицы</p>
+        <h1>Бронирование отелей</h1>
+        <p class="lead">Сравните актуальные предложение отелей</p>
       </div>
 
              <div class="row">
@@ -21,17 +21,17 @@
 
              </div>
           <% Integer i=0; %>
-          <c:forEach items="${ads}" var="ad">
+          <c:forEach items="${rents}" var="rent">
              <br />
              <div class="row">
                <div class="col-md-1"><% out.print(++i); %></div>
-               <div class="col-md-1">${ad.price} </div>
-               <div class="col-md-3">${ad.address}</div>
-               <div class="col-md-3">${ad.description}</div>
-               <div class="col-md-1">${ad.roomCount}</div>
-               <div class="col-md-1">${ad.area}</div>
-               <div class="col-md-1">${ad.floor}</div>
-               <div class="col-md-1">${ad.floors}</div>
+               <div class="col-md-1">${rent.price} </div>
+               <div class="col-md-3">${rent.address}</div>
+               <div class="col-md-3">${rent.city}</div>
+               <div class="col-md-1">${rent.roomCount}</div>
+               <div class="col-md-1">${rent.rating}</div>
+               <div class="col-md-1">${rent.floor}</div>
+               <div class="col-md-1">${rent.guests}</div>
              </div>
           </c:forEach>
 

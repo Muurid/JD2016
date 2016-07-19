@@ -12,7 +12,7 @@
     -->
     <servlet>
         <servlet-name>Controller</servlet-name>
-        <servlet-class>by.it.akhmelev.project.java.Controller</servlet-class>
+        <servlet-class>by.it.sereda.project.java.Controller</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>Controller</servlet-name>

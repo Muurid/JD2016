@@ -52,6 +52,7 @@
                 <select id="role" name="FK_role" class="form-control">
                     <option value="2">User</option>
                     <option value="1">Administrator</option>
+                    <option value="3">Hotel</option>
                 </select>
             </div>
         </div>

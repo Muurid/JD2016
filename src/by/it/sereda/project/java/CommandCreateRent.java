@@ -22,11 +22,11 @@ public class CommandCreateRent implements ActionCommand {
             Rent rent =new Rent();
             rent.setID(0);
             rent.setAddress(frm.getString("Address"));
-            rent.setDescription(frm.getString("Description"));
-            rent.setArea(frm.getDouble("Area"));
+            rent.setCity(frm.getString("City"));
+            rent.setRating(frm.getDouble("Rating"));
             rent.setPrice(frm.getDouble("Price"));
             rent.setFloor(frm.getInt("Floor"));
-            rent.setFloors(frm.getInt("Floors"));
+            rent.setGuests(frm.getInt("Guests"));
             rent.setRoomCount(frm.getInt("RoomCount"));
             rent.setFK_Users(user.getId());
             DAO dao= DAO.getDAO();
