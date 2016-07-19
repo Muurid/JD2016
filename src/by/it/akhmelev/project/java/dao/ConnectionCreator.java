@@ -9,11 +9,22 @@ import java.sql.SQLException;
 
 public class ConnectionCreator {
     //Памятка. Корректно держать настройки соединения вне кода (!)
-    private static final String URL_DB =
-            "jdbc:mysql://127.0.0.1:2016/it_academy"
-             +"?useUnicode=true&characterEncoding=UTF-8";
-    private static final String USER_DB = "root";
-    private static final String PASSWORD_DB = "";
+    public static String URL_DB;
+    public static String USER_DB;
+    public static String PASSWORD_DB;
+
+    public static void setURL_DB(String urlDb) {
+        URL_DB = urlDb;
+    }
+
+    public static void setUSER_DB(String userDb) {
+        USER_DB = userDb;
+    }
+
+    public static void setPASSWORD_DB(String passwordDb) {
+        PASSWORD_DB = passwordDb;
+    }
+
     static {
         try{
             Class.forName("com.mysql.jdbc.Driver");     //регистрация jdbc (для tomcat)
