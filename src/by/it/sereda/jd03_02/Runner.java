@@ -1,5 +1,7 @@
 package by.it.sereda.jd03_02;
 
+import by.it.sereda.jd03_02.crud.UserCRUD;
+
 import java.sql.SQLException;
 
 public class Runner {
