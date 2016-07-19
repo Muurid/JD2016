@@ -45,6 +45,8 @@ public class CommandAllUsers implements ActionCommand {
                     user.setLogin(frm.getString("Login"));   //логин
                     user.setPassword(frm.getString("Password"));
                     user.setName(frm.getString("Name"));
+                    user.setLastname(frm.getString("Lastname"));
+                    user.setAddress(frm.getString("Address"));
                     user.setFk_Role(frm.getInt("fk_Role"));
                     frm.setMessage(user.toString());
                     //Определим, это обновление или удаление.

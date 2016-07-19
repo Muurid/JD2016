@@ -37,6 +37,13 @@ public enum Action {
             this.okPage ="/";
         }
     },
+    ORDERS {
+        {
+            this.command = new CommandOrders();
+            this.inPage="/orders.jsp";
+            this.okPage ="/orders.jsp";
+        }
+    },
     ALLUSERS {
         {
             this.command = new CommandAllUsers();

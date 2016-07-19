@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Хост: 127.0.0.1:2016
--- Время создания: Июл 19 2016 г., 14:25
+-- Время создания: Июл 19 2016 г., 20:03
 -- Версия сервера: 10.1.10-MariaDB
 -- Версия PHP: 5.6.15
 
@@ -51,6 +51,19 @@ INSERT INTO `ad` (`ID`, `Electronics`, `Manufacturer`, `Name`, `Model`, `Price`,
 (8, 'tablets', 'Apple', 'iPad Pro Gold', '256GB', 3104, '12.9" IPS (2732x2048), iOS, ОЗУ 4 ГБ, флэш-память 256 ГБ, цвет золотистый', 2),
 (9, 'tablets', 'Samsung', 'Galaxy View', '32GB', 2070, '18.4" (1920x1080), Android, ОЗУ 2 ГБ, флэш-память 32 ГБ, LTE, цвет черный', 2),
 (10, 'tablets', 'Lenovo', 'ThinkPad', '128GB', 1921, '10.1" IPS (1920x1200), Windows 10, ОЗУ 4 ГБ, флэш-память 128 ГБ, LTE, цвет черный', 2);
+
+-- --------------------------------------------------------
+
+--
+-- Структура таблицы `orders`
+--
+
+CREATE TABLE `orders` (
+  `ID` int(11) NOT NULL,
+  `FK_Users` int(11) NOT NULL,
+  `FK_Ad` int(11) NOT NULL,
+  `Price` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -109,6 +122,12 @@ ALTER TABLE `ad`
   ADD PRIMARY KEY (`ID`) USING HASH;
 
 --
+-- Индексы таблицы `orders`
+--
+ALTER TABLE `orders`
+  ADD PRIMARY KEY (`ID`);
+
+--
 -- Индексы таблицы `role`
 --
 ALTER TABLE `role`
@@ -129,6 +148,11 @@ ALTER TABLE `users`
 --
 ALTER TABLE `ad`
   MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+--
+-- AUTO_INCREMENT для таблицы `orders`
+--
+ALTER TABLE `orders`
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT для таблицы `users`
 --

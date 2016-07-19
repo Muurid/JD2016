@@ -36,9 +36,7 @@
                           </b></div>
 
                       <div class=col-md-1>
-                          <button id="singlebutton" name="singlebutton" class="btn btn-success"
-                          onclick="document.getElementById('user_id_${user.id}').value=-document.getElementById('user_id_${user.id}').value;">
-                              Buy
+                          <button id="buybutton" name="buybutton" value="1" class="btn btn-success">Buy
                           </button>
                       </div>
                   </form>

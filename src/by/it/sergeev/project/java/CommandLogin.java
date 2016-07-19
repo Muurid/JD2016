@@ -3,6 +3,7 @@ package by.it.sergeev.project.java;
 import by.it.sergeev.project.java.beans.User;
 import by.it.sergeev.project.java.dao.DAO;
 
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
@@ -23,6 +24,14 @@ public class CommandLogin implements ActionCommand {
                         String.format("where Login='%s' and Password='%s'", login, password)
                 ).get(0);
 
+                Cookie cook[]=request.getCookies();
+                if (cook!=null){
+                    for (Cookie cookie:cook){
+                        if (cookie.getName().equals("Login")){
+                            login=cookie.getValue();
+                        }
+                    }
+                }
                 //теперь сохраним данные о пользователе в сессию
                 HttpSession session = request.getSession(true);
                 session.setAttribute("user", user);

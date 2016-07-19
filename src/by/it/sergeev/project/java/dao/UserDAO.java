@@ -25,6 +25,8 @@ public class UserDAO extends AbstractDAO implements InterfaceDAO<User> {
                 user.setEmail(rs.getString("email"));
                 user.setPassword(rs.getString("password"));
                 user.setName(rs.getString("name"));
+                user.setLastname(rs.getString("lastname"));
+                user.setAddress(rs.getString("address"));
                 user.setFk_Role(rs.getInt("FK_Role"));
                 users.add(user);
             }
