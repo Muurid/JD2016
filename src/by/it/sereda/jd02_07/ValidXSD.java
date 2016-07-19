@@ -20,19 +20,16 @@ public class ValidXSD {
         SchemaFactory factory = SchemaFactory.newInstance(language);
         File schemaLocation = new File(schemaName);
         try {
-            // создание схемы
             Schema schema = factory.newSchema(schemaLocation);
-            // создание валидатора на основе схемы
             Validator validator = schema.newValidator();
-            // проверка документа
             Source source = new StreamSource(fileName);
             validator.validate(source);
-            System.out.println(fileName + " валиден.");
+            System.out.println("Файл" + fileName + " валиден.");
         } catch (SAXException e) {
-            System.err.print("Валидация "+ fileName + " не выполена: "
+            System.err.print("Валидация файла "+ fileName + " не выполена: "
                     + e.getMessage());
         } catch (IOException e) {
-            System.err.print(fileName + " не валиден:"
+            System.err.print("Файл" + fileName + " не валиден:"
                     + e.getMessage());
         }
     }
