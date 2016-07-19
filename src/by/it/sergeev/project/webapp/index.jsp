@@ -1,36 +1,46 @@
-<%@ page language="java" pageEncoding="UTF-8" %>
+<%@ page contentType="text/html;charset=UTF-8" language="java" pageEncoding="UTF-8" %>
 <%@ include file="include/begin-html.jsp" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
       <!-- Основное содержимое -->
       <div class="page-header">
-        <h1>Каталог</h1>
-        <p class="lead">Готовим макет для вывода данных в виде таблицы</p>
+        <h1>Catalog</h1>
       </div>
+             <div class="row">
+                     <div class="col-md-2"><b>Manufacturer</b></div>
+                     <div class="col-md-2"><b>Name</b></div>
+                     <div class="col-md-1"><b>Model</b></div>
+                     <div class="col-md-4"><b>Description</b></div>
+                     <div class="col-md-2"><b>Price</b></div>
+                     <div class="col-md-1"></div>
+                   </div>
+         <c:forEach items="${ads}" var="ad">
+                  <div class="row">
+                      <div class=col-md-2>
+                          <input id="textinput" name="manufacturer" type="text"
+                          value="${ad.manufacturer}" class="form-control input-md">
+                      </div>
+                      <div class=col-md-2>
+                          <input id="textinput" name="name" type="text"
+                          value="${ad.name}" class="form-control input-md">
+                      </div>
+                      <div class=col-md-1>
+                          <input id="textinput" name="model" type="text"
+                          value="${ad.model}" class="form-control input-md">
+                      </div>
+                      <div class="col-md-4">${ad.description}</div>
 
-      <h3>Телефоны</h3>
+                      <div class=col-md-2><b>
+                          <input id="textinput" name="price" type="text"
+                          value="${ad.price}" class="form-control input-md">
+                          </b></div>
 
-      <div class="row">
-        <div class="col-md-2">Производитель</div>
-        <div class="col-md-2">Название</div>
-        <div class="col-md-1">Модель</div>
-        <div class="col-md-1">Цена</div>
-        <div class="col-md-4">Описание</div>
-        <div class="col-md-2"></div>
-      </div>
-
-      <div class="row">
-        <div class="col-md-2">Apple</div>
-        <div class="col-md-2">Iphone</div>
-        <div class="col-md-1">5s</div>
-        <div class="col-md-1">200</div>
-        <div class="col-md-4">крутая мобила</div>
-          <label class="col-md-2 control-label" for="buy"></label>
-          <div class="col-md-2">
-              <button id="buy" name="buy" class="btn btn-success">Купить</button>
-          </div>
-      </div>
-
-
-
-
+                      <div class=col-md-1>
+                          <button id="buybutton" name="buybutton" value="1" class="btn btn-success">Buy
+                          </button>
+                      </div>
+                  </form>
+                  </div>
+             <br>
+             </c:forEach>
 <%@ include file="include/end-html.jsp" %>

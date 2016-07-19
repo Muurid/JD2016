@@ -4,20 +4,23 @@
 <form class="form-horizontal" action="do?command=LOGIN" method="POST">
     <fieldset>
 
+        <!-- Form Name -->
+        <legend>SING IN</legend>
+
         <!-- Text input-->
         <div class="form-group">
-            <label class="col-md-4 control-label" for="Login">Login</label>
+            <label class="col-md-4 control-label" for="Login">LOGIN</label>
             <div class="col-md-4">
-                <input id="Login" name="Login" type="text" value="UserLogin" placeholder="" class="form-control input-md" required="">
+                <input id="Login" name="Login" type="text" value="admin" placeholder="" class="form-control input-md" required="">
                 <span class="help-block">Введите логин</span>
             </div>
         </div>
 
         <!-- Password input-->
         <div class="form-group">
-            <label class="col-md-4 control-label" for="Password">Password</label>
+            <label class="col-md-4 control-label" for="Password">PASSWORD</label>
             <div class="col-md-4">
-                <input id="Password" name="Password" type="password" value="UserPassword" placeholder="" class="form-control input-md" required="">
+                <input id="Password" name="Password" type="password" value="admin" placeholder="" class="form-control input-md" required="">
                 <span class="help-block">Введите пароль</span>
             </div>
         </div>
@@ -26,7 +29,7 @@
         <div class="form-group">
             <label class="col-md-4 control-label" for="singlebutton"></label>
             <div class="col-md-4">
-                <button id="singlebutton" name="singlebutton" class="btn btn-success">Войти</button>
+                <button id="singlebutton" name="singlebutton" class="btn btn-success">GO</button>
             </div>
         </div>
 

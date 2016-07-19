@@ -10,47 +10,45 @@ public class CommandSignUp implements ActionCommand {
 
     @Override
     public String execute(HttpServletRequest request) {
-        String page = Action.SIGNUP.inPage;
-
-        //проверим отправлены ли данные из формы, если нет, то покажем форму
-        if (request.getParameter("Email") == null) {
-            return page;
-        }
-
+        FormHelper frm = new FormHelper(request);
+        //проверим отправлены ли данные из формы, если нет, то покажем форму регистрации
         User user = new User();
-        user.setId(0);
-        //добавляем пользователей и администраторов, но это демо!!!
-        int fkUser = Integer.parseInt(request.getParameter("FK_role"));
-        user.setFk_Role(fkUser);
-
-        user.setEmail(request.getParameter("Email"));   //почта
-        user.setLogin(request.getParameter("Login"));   //логин
-        user.setPassword(request.getParameter("Password"));
-        user.setName(request.getParameter("Name"));
-        user.setLastname(request.getParameter("LastName"));
-        user.setAddress(request.getParameter("LastName"));
-        user.setPassword(request.getParameter("Password"));
-        //пароль. тут проблема безопасности.
-        // нужно "солить" и хешировать.
-
-        //проверим поля (добавьте паттерны самостоятельно)
-        if (FormHelper.valid(user.getEmail()) &&
-                FormHelper.valid(user.getLogin()) &&
-                FormHelper.valid(user.getPassword())
-                ) {
+        if (frm.isPost())
+        try {
+            user.setId(0);
+            //проверим поля (добавьте паттерны самостоятельно)
+            user.setEmail(frm.getString("Email"));   //почта
+            user.setLogin(frm.getString("Login"));   //логин
+            user.setName(frm.getString("Name"));
+            user.setLastname(frm.getString("Lastname"));
+            user.setAddress(frm.getString("Address"));
+            //пароль. тут проблема безопасности.
+            // нужно "солить" и хешировать.
+            user.setPassword(frm.getString("Password"));
             DAO dao = DAO.getDAO();
-            if (dao.user.create(user)) {
-                request.setAttribute(
-                        Action.msgMessage,
-                        "Пользователь создан. Введите данные для авторизации.");
-                page = Action.SIGNUP.okPage;
+
+            //немного сложно для понимания. но это почти что user.setFk_Role(2);
+            user.setFk_Role((dao.role.getAll("WHERE Role='User' LIMIT 0,1").get(0)).getId());
+
+            //проверим нет ли такого же пользователя уже в базе
+            boolean found =
+                    dao.user.getAll(String.format("WHERE Login='%s' or Email='%s' LIMIT 0,1",
+                            user.getLogin(), user.getEmail()
+                            )
+                    ).size() > 0;
+
+            if (!found) {
+                dao.user.create(user);
+                frm.setMessage("Пользователь создан. Введите данные для авторизации.");
+                return Action.SIGNUP.okPage;
+                //кстати, тут еще можно добавить пользователя в сессию
+                // и тогда его не нужно будет авторизовывать
             } else {
-                request.setAttribute(
-                        Action.msgMessage,
-                        "Пользователь НЕ создан. Введите данные заново. " + dao.user.lastSQL);
-                page = Action.SIGNUP.inPage;
+                frm.setErrorMessage("Пользователь с такими данными уже существует.");
             }
+        } catch (Exception e) {
+            frm.setErrorMessage("Пользователь НЕ создан. Введите данные повторно. ");
         }
-        return page;
+        return Action.SIGNUP.inPage;
     }
 }
