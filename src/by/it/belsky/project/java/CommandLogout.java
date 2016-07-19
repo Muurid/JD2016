@@ -11,19 +11,37 @@ import java.util.List;
 public class CommandLogout implements ActionCommand {
     @Override
     public String execute(HttpServletRequest request) {
-        HttpSession session=request.getSession(true);
-        User user= (User) session.getAttribute("user");
-        if (session.getAttribute("user") == null)
-            return Action.ERROR.fPage;
-        request.setAttribute("LoginAndEmail",user.getLogin()+"( "+user.getEmail()+" )");
-        DAO dao=DAO.getDAO();
-        List<Form> forms=dao.form.getAll("WHERE FK_Users="+user.getId());
-        request.setAttribute("Forms",forms);
-        if (request.getParameter("LogoutButton")!=null) {
-            session.invalidate();
-            return Action.LOGOUT.okPage;
+        HttpSession session = request.getSession(true);
+        FormHelper formHelper = new FormHelper(request);
+        try {
+            User user = (User) session.getAttribute("user");
+            if (session.getAttribute("user") == null)
+                return Action.ERROR.fPage;
+            request.setAttribute("LoginAndEmail", user.getLogin() + "( " + user.getEmail() + " )");
+            //      DAO dao=DAO.getDAO();
+//        List<Form> forms=dao.form.getAll("WHERE FK_Users="+user.getId());
+//        request.setAttribute("Forms",forms);
+            if (request.getParameter("LogoutButton") != null) {
+                session.invalidate();
+                return Action.LOGOUT.okPage;
+            }
+            formHelper.setMessage("test");
+            if (user != null) {
+                request.setAttribute("user", user);
+                List<Form> forms = DAO.getDAO().form.getAll("WHERE FK_Users='" + user.getId() + "'");
+                request.setAttribute("forms", forms);
+                Form form=null;
+                if (forms.size()==0) {
+                    return Action.ERROR.kPage;
+                }
+            } else {
+                return Action.LOGIN.inPage;
+            }
+
+        } catch (Exception e) {
+            formHelper.setErrorMessage(e.toString());
+
         }
-        else
         return Action.LOGOUT.inPage;
     }
 }
