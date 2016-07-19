@@ -41,7 +41,6 @@ public class Controller extends HttpServlet {
 
         User user = (User) request.getSession(true).getAttribute("user");
 
-
         if (user != null) {
             /**
              * Создание cookie для логина

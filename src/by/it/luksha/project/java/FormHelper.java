@@ -1,11 +1,7 @@
 package by.it.luksha.project.java;
 
-/**
- * Created by MMauz on 14.07.2016.
- */
 
 import javax.servlet.http.HttpServletRequest;
-import java.text.DateFormat;
 import java.util.Enumeration;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;

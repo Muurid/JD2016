@@ -1,9 +1,5 @@
 package by.it.luksha.project.java.beans;
 
-/**
- * Created by MMauz on 07.07.2016.
- */
-
 import java.sql.Timestamp;
 
 /**

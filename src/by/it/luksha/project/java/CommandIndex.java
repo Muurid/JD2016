@@ -7,9 +7,6 @@ import by.it.luksha.project.java.dao.DAO;
 import javax.servlet.http.HttpServletRequest;
 import java.util.List;
 
-/**
- * Created by MMauz on 17.07.2016.
- */
 public class CommandIndex implements ActionCommand {
     @Override
     public String execute(HttpServletRequest request) {
@@ -17,7 +14,7 @@ public class CommandIndex implements ActionCommand {
 
         CarDAO carDAO = DAO.getDAO().getCarDAO();
         List<Car> cars = carDAO.getAll("");
-        request.setAttribute("ListCars", cars.toString());
+        request.setAttribute("ListCars", cars);
 
         return resultPage;
     }
