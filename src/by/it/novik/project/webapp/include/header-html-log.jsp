@@ -12,6 +12,7 @@
                 <ul class="nav navbar-nav">
                     <li><a href=do?command=Registration>Registration</a></li>
                     <li></li>
+                                         <li>${message}</li>
                 </ul>
             </div>
         </div>

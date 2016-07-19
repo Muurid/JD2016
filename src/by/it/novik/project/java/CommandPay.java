@@ -28,9 +28,8 @@ public class CommandPay implements ActionCommand {
         String description = request.getParameter("description");
         String amount = request.getParameter("amount");
         //ID счета-источника платежа получаем из параметра
-        String id = request.getParameter("id_account");
-        Integer id_account = Integer.parseInt(id);
-        request.setAttribute("id_account",id);
+        Integer id_account = Integer.parseInt(request.getParameter("id_account"));
+        request.setAttribute("id_account",id_account);
         //Если не введены данные, то возвращаем ту жу страницу
         if (amount == null || destination==null || description==null) {
             return page;
@@ -67,50 +66,44 @@ public class CommandPay implements ActionCommand {
                         payment = new Payment(0, id_account, description, id_destination, Date.valueOf(currentDate),
                                 pay_amount);
 
-//                    try {
-//                        ConnectorDB.getConnection().setAutoCommit(false);
+                    try {
+                        ConnectorDB.getConnection().setAutoCommit(false);
                         if (dao.getAccountDAO().update(account) && dao.getPaymentDAO().create(payment) &&
                                 dao.getAccountDAO().update(destination_account)) {
                             request.setAttribute(Action.msgMessage, "Payment was done.");
-                            request.setAttribute("type","success");
                             page = Action.PAY.okPage;
-//                            ConnectorDB.getConnection().commit();
+                            ConnectorDB.getConnection().commit();
                         } else {
-//                            ConnectorDB.getConnection().rollback();
                             request.setAttribute(Action.msgMessage, "Payment wasn't done. Repeat, please, enter.");
-                            request.setAttribute("type","danger");
                             page = Action.PAY.inPage;
                         }
 
-//                    } catch (SQLException e) {
-//                        e.printStackTrace();
-//                        try {
-//                            ConnectorDB.getConnection().rollback();
-//                        } catch (SQLException e1) {
-//                            e1.printStackTrace();
-//                        }
-//                    } finally {
-//                        try {
-//                            ConnectorDB.getConnection().setAutoCommit(true);
-//                        } catch (SQLException e) {
-//                            e.printStackTrace();
-//                        }
-//                    }
+                    } catch (SQLException e) {
+                        e.printStackTrace();
+                        try {
+                            ConnectorDB.getConnection().rollback();
+                        } catch (SQLException e1) {
+                            e1.printStackTrace();
+                        }
+                    } finally {
+                        try {
+                            ConnectorDB.getConnection().setAutoCommit(true);
+                        } catch (SQLException e) {
+                            e.printStackTrace();
+                        }
+                    }
 
                 } else {
                     request.setAttribute(Action.msgMessage,"Account of destination doesn't exist. Repeat, please, enter.");
-                    request.setAttribute("type","danger");
                     page = Action.PAY.inPage;
                 }
 
             } else {
                 request.setAttribute(Action.msgMessage,"Few funds in the account. Refill your account.");
-                request.setAttribute("type","danger");
                 page = Action.PAY.inPage;
             }
         } else {
             request.setAttribute(Action.msgMessage,"Not valid data! Repeat, please, input.");
-            request.setAttribute("type","danger");
             page = Action.PAY.inPage;
         }
         return page;

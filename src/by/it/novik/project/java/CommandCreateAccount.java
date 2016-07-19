@@ -13,7 +13,7 @@ public class CommandCreateAccount implements ActionCommand{
 
     @Override
     public String execute(HttpServletRequest request) {
-        String page = Action.NEW_ACCOUNT.inPage;
+        String page = Action.ACCOUNTS.inPage;
         //Получаем из сессии объект user
         User user= (User) request.getSession(true).getAttribute("user");
         if (user==null) {
@@ -21,16 +21,12 @@ public class CommandCreateAccount implements ActionCommand{
         }
         //Получаем объект DAO
         DAO dao = DAO.getDAO();
-        Account account = new Account(0,0,"Working",user.getIdUser());
+        Account account = new Account(0,0,"Working",2);
         if (dao.getAccountDAO().create(account)) {
-            request.setAttribute(Action.msgMessage, "Account # " + account.getIdAccount() +" was created.");
-            request.setAttribute("type","success");
-            page = Action.NEW_ACCOUNT.okPage;
+            request.setAttribute(Action.msgMessage, "Account № " + account.getIdAccount() +" was created.");
         }
         else {
             request.setAttribute(Action.msgMessage, "Account wasn't created.");
-            request.setAttribute("type","danger");
-            page = Action.NEW_ACCOUNT.okPage;
         }
         return page;
     }

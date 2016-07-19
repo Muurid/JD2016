@@ -32,19 +32,17 @@ public class Controller extends HttpServlet {
         String viewPage = command.execute(request);
 
         response.setHeader("Cache-Control", "no-store");
-        HttpSession httpSession = request.getSession(false);
-        if (httpSession!=null) {
-            User user = (User) httpSession.getAttribute("user");
-            String login = (String) httpSession.getAttribute("login");
-            String password = (String) httpSession.getAttribute("password");
-            //Создадим куки на логин и зашифрованный пароль
-            Cookie cookieFirst = new Cookie("login", login);
-            Cookie cookieSecond = new Cookie("password", password);
-            cookieFirst.setMaxAge(30);
-            cookieSecond.setMaxAge(30);
-            response.addCookie(cookieFirst);
-            response.addCookie(cookieSecond);
-        }
+//        HttpSession httpSession = request.getSession(false);
+//        if (httpSession!=null) {
+//            User user = (User) httpSession.getAttribute("user");
+//            //Создадим куки на логин и зашифрованный пароль
+//            Cookie cookieFirst = new Cookie("login", user.getNickname());
+//            Cookie cookieSecond = new Cookie("password", user.getPassword());
+//            cookieFirst.setMaxAge(30);
+//            cookieSecond.setMaxAge(30);
+//            response.addCookie(cookieFirst);
+//            response.addCookie(cookieSecond);
+//        }
         //метод отправляет пользователю страницу ответа
         if (viewPage != null) {
             ServletContext servletContext=getServletContext();

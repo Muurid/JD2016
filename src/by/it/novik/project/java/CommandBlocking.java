@@ -33,14 +33,12 @@ public class CommandBlocking implements ActionCommand {
         //Меняем поле счета на заблокированное
         account.setState("Lock");
         if (dao.getAccountDAO().update(account)) {
-            request.setAttribute(Action.msgMessage, "Blocking of account #" + id +" was done.");
-            request.setAttribute("type","success");
+            request.setAttribute(Action.msgMessage, "Blocking of account" + id +" was done.");
             page = Action.BLOCK.okPage;
         }
         else {
-            request.setAttribute(Action.msgMessage, "Blocking of account #" + id + " wasn't done.");
+            request.setAttribute(Action.msgMessage, "Blocking of account" + id + " wasn't done.");
             page = Action.BLOCK.inPage;
-            request.setAttribute("type","danger");
         }
         return page;
     }
