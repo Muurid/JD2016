@@ -1,4 +1,7 @@
-package by.it.sereda.jd03_02;
+package by.it.sereda.jd03_02.crud;
+
+import by.it.sereda.jd03_02.ConnectorDemo;
+import by.it.sereda.jd03_02.User;
 
 import java.sql.Connection;
 import java.sql.ResultSet;
@@ -17,8 +20,8 @@ public class UserCRUD {
 
 
             String sql = String.format("insert into users(Login,Password,Email,FK_Role)\n" +
-                    "values('%s','%s','%s',%d);",
-            user.getLogin(), user.getPassword(), user.getEmail(), user.getFk_role());
+                            "values('%s','%s','%s',%d);",
+                    user.getLogin(), user.getPassword(), user.getEmail(), user.getFk_role());
             //выполняем добавление в базу, должна быть добавлена одна запись, проверим это
             if (statement.executeUpdate(sql) == 1) {
                 //если всё добавлено то узнаемм  последний ID
@@ -45,7 +48,7 @@ public class UserCRUD {
         try (
                 Connection connection = ConnectorDemo.getConnection();
                 Statement statement = connection.createStatement();
-                ) {
+        ) {
             String sql = "Delete from users where ID="+user.getId();
             return (statement.executeUpdate(sql) ==1);
         } catch (SQLException e) {
@@ -61,14 +64,14 @@ public class UserCRUD {
         ) {
             String sql = "Select * from users where ID="+ id;
             ResultSet resultSet = statement.executeQuery(sql);
-                    if (resultSet.next()) {
-                        user=new User (
-                                resultSet.getInt("ID"),
-                                resultSet.getString("Login"),
-                                resultSet.getString("Email"),
-                                resultSet.getString("Password"),
-                                resultSet.getInt("FK_Role"));
-                    }
+            if (resultSet.next()) {
+                user=new User (
+                        resultSet.getInt("ID"),
+                        resultSet.getString("Login"),
+                        resultSet.getString("Email"),
+                        resultSet.getString("Password"),
+                        resultSet.getInt("FK_Role"));
+            }
         } catch (SQLException e) {
             throw e;
         }

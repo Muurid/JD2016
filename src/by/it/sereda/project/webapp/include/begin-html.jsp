@@ -24,17 +24,25 @@
               <span class="icon-bar"></span>
               <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="/sereda">Главная</a>
+            <a class="navbar-brand" href=".">Главная</a>
           </div>
           <div class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
-              <li><a href="do?command=CreateRent">Предложить номер отеля</a></li>
-              <li><a href="do?command=ShowUsers">Список пользователей</a></li>
+              <li><a href="do?command=CreateRent">Предложить номер</a></li>
+              <li><a href="do?command=AllUsers">Список пользователей</a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
               <li><a href="do?command=SignUp">Зарегистрироваться</a></li>
+              <!--
               <li><a href='do?command=Login'>Войти</a></li>
               <li><a href='do?command=Profile'>Профиль</a></li>
+              Эти две команды можно показать как одну вот так:
+              -->
+              ${user==null?
+                "<li><a href='do?command=Login'>Войти</a></li>"
+                    :
+                "<li><a href='do?command=Profile'>Профиль</a></li>"
+              }
               <li><a href="/manager/html/list">Tomcat</a></li>
             </ul>
           </div><!--/.nav-collapse -->
@@ -42,3 +50,4 @@
       </div>
 
 <p style="Font-weight: bold; color: RED;">${msg_error}</p>
+

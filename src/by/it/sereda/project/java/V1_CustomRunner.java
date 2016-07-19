@@ -26,14 +26,14 @@ public class V1_CustomRunner {
         }
         showUsers();
 
-        User user = new User(0,"Сергей Иванович", "siivanov", "siivanov@mail.ru",2);
+        User user = new User(0,"Сергей Иванович", "silivanov", "silivanov@mail.ru",2);
         //добавим пользователя
         if (dao.user.create(user)) System.out.println("\nДобавлен:" + user);
         showUsers();
 
-        //извлечем и обновим пользователя с email siivanov@mail.ru
+        //извлечем и обновим пользователя с email silivanov@mail.ru
         user = dao.user.getAll("WHERE ID>2").get(0);
-        user.setLogin("up_siivanov");
+        user.setLogin("up_silivanov");
         if (dao.user.update(user)) System.out.println("\nИзменен:" + user);
         showUsers();
 

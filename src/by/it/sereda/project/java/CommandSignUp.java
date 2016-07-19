@@ -15,7 +15,7 @@ public class CommandSignUp implements ActionCommand {
         User user = new User();
         if (frm.isPost())
         try {
-            //user.setId(0);
+            user.setId(0);
             //проверим поля (добавьте паттерны самостоятельно)
             user.setEmail(frm.getString("Email"));   //почта
             user.setLogin(frm.getString("Login"));   //логин
@@ -36,7 +36,7 @@ public class CommandSignUp implements ActionCommand {
 
             if (!found) {
                 dao.user.create(user);
-                frm.setMessage("Пользователь создан. Введите данные для авторизации.");
+                frm.setMessage("Пользователь успешно создан. Введите данные для авторизации.");
                 return Action.SIGNUP.okPage;
                 //кстати, тут еще можно добавить пользователя в сессию
                 // и тогда его не нужно будет авторизовывать
@@ -44,7 +44,7 @@ public class CommandSignUp implements ActionCommand {
                 frm.setErrorMessage("Пользователь с такими данными уже существует.");
             }
         } catch (Exception e) {
-            frm.setErrorMessage("Пользователь НЕ создан. Введите данные повторно. ");
+            frm.setErrorMessage("Ошибка создания пользователя. Введите данные повторно. ");
         }
         return Action.SIGNUP.inPage;
     }

@@ -1,4 +1,4 @@
-package by.it.sereda.project.java.beans;
+package by.it.sereda.jd03_02.beans;
 
 public class Rent {
 

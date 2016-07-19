@@ -2,6 +2,13 @@ package by.it.sereda.project.java;
 
 
 public enum Action {
+    INDEX {
+        {
+            this.command = new CommandIndex();
+            this.inPage="/index.jsp";
+            this.okPage ="/index.jsp";
+        }
+    },
     SIGNUP {
         {
             this.command = new CommandSignUp();
@@ -23,6 +30,13 @@ public enum Action {
             this.okPage ="/login.jsp";
         }
     },
+    ALLUSERS {
+        {
+            this.command = new CommandAllUsers();
+            this.inPage="/allusers.jsp";
+            this.okPage ="/allusers.jsp";
+        }
+    },
     CREATERENT {
         {
             this.command = new CommandCreateRent();
@@ -36,7 +50,7 @@ public enum Action {
             //this.command = new CommandError();
             //String inPage="/error.jsp";
             //String okPage ="/error.jsp";
-                    }
+        }
     };
 
     //инициализация полей по умолчанию

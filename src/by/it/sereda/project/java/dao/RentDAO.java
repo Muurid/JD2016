@@ -25,15 +25,15 @@ public class RentDAO extends AbstractDAO implements InterfaceDAO<Rent> {
     public boolean create(Rent rent) {
         //локаль нужна,т.к. есть дробные числа. Их нужно указывать через точку
         String sql = String.format(Locale.ENGLISH,
-                "insert INTO rent(RoomCount,Price,Area,Floor,Floors,Address,Description,FK_Users)" +
+                "insert INTO rent(RoomCount,Price,Rating,Floor,Guests,Address,Hotels,FK_Users)" +
                         "\n values('%d', '%.3f', '%.3f', '%d', '%d', '%s', '%s' ,'%d');",
                 rent.getRoomCount(),
                 rent.getPrice(),
-                rent.getArea(),
+                rent.getRating(),
                 rent.getFloor(),
-                rent.getFloors(),
+                rent.getGuests(),
                 rent.getAddress(),
-                rent.getDescription(),
+                rent.getHotels(),
                 rent.getFK_Users()
         );
         rent.setID(executeUpdate(sql));
@@ -47,20 +47,20 @@ public class RentDAO extends AbstractDAO implements InterfaceDAO<Rent> {
                 "UPDATE `rent` SET " +
                         "`RoomCount`=%d " +
                         ",`Price`='%.3f'" +
-                        ",`Area`='%.3f'" +
+                        ",`Rating`='%.3f'" +
                         ",`Floor`=%d" +
-                        ",`Floors`=%d" +
+                        ",`Guests`=%d" +
                         ",`Address`='%s'" +
-                        ",`Description`='%s'" +
+                        ",`Hotels`='%s'" +
                         ",`FK_Users`=%d " +
                         " WHERE `rent`.`ID` = %d",
                 rent.getRoomCount(),
                 rent.getPrice(),
-                rent.getArea(),
+                rent.getRating(),
                 rent.getFloor(),
-                rent.getFloors(),
+                rent.getGuests(),
                 rent.getAddress(),
-                rent.getDescription(),
+                rent.getHotels(),
                 rent.getFK_Users(),
                 rent.getID()
         );
@@ -88,11 +88,11 @@ public class RentDAO extends AbstractDAO implements InterfaceDAO<Rent> {
                 Rent rent = new Rent();
                 rent.setID(rs.getInt("ID"));
                 rent.setAddress(rs.getString("Address"));
-                rent.setArea(rs.getDouble("Area"));
-                rent.setDescription(rs.getString("Description"));
+                rent.setRating(rs.getDouble("Rating"));
+                rent.setHotels(rs.getString("Hotels"));
                 rent.setFK_Users(rs.getInt("FK_Users"));
                 rent.setFloor(rs.getInt("Floor"));
-                rent.setFloors(rs.getInt("Floors"));
+                rent.setGuests(rs.getInt("Guests"));
                 rent.setPrice(rs.getDouble("Price"));
                 rent.setRoomCount(rs.getInt("RoomCount"));
                 rents.add(rent);
