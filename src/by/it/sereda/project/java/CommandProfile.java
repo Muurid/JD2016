@@ -15,22 +15,27 @@ public class CommandProfile implements ActionCommand {
         FormHelper frm = new FormHelper((request));
         try {
             //если был POST и нажали кнопку выйти из аккаунта, то сессия сбрасывается.
-            if (frm.isPost() && frm.getInt("LogoutButton") == 1) {
-                httpSession.invalidate();
-                return Action.PROFILE.okPage;
+            if (frm.isPost()) {
+                if (request.getParameter("LogoutButton") != null &&
+                        frm.getInt("LogoutButton") == 1) {
+                    httpSession.invalidate();
+                    return Action.PROFILE.okPage;
+                }
             }
 
+            frm.setMessage("test");
             //получим пользователя, его данные и его объявления
-            User sessionUser = (User) httpSession.getAttribute("user");
-            List<Rent> rents = DAO.getDAO().rent.getAll("WHERE FK_Users='" + sessionUser.getId() + "'");
-            request.setAttribute("ProfileLogin", sessionUser.getEmail());
-            request.setAttribute("ProfileEmail", sessionUser.getLogin());
-            request.setAttribute("ProfileAds", rents.toString());
-            return Action.PROFILE.inPage;
-
+            User user = (User) request.getSession(true).getAttribute("user");
+            if (user != null) {
+                request.setAttribute("user", user);
+                List<Rent> rents = DAO.getDAO().rent.getAll("WHERE FK_Users='" + user.getId() + "'");
+                request.setAttribute("rents", rents);
+            } else {
+                return Action.LOGIN.inPage;
+            }
         } catch (Exception e) {
             frm.setErrorMessage(e.toString());
         }
-        return Action.LOGIN.inPage;
+        return Action.PROFILE.inPage;
     }
 }

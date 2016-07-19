@@ -12,10 +12,11 @@
     -->
     <servlet>
         <servlet-name>Controller</servlet-name>
-        <servlet-class>by.it.sereda.project.java.Controller</servlet-class>
+        <servlet-class>by.it.akhmelev.project.java.Controller</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>Controller</servlet-name>
+        <url-pattern></url-pattern>
         <url-pattern>/do</url-pattern>
     </servlet-mapping>
 

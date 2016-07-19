@@ -50,7 +50,7 @@ public enum Action {
             //this.command = new CommandError();
             //String inPage="/error.jsp";
             //String okPage ="/error.jsp";
-                    }
+        }
     };
 
     //инициализация полей по умолчанию

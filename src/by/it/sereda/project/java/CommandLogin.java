@@ -27,8 +27,10 @@ public class CommandLogin implements ActionCommand {
                 HttpSession session = request.getSession(true);
                 session.setAttribute("user", user);
 
-                frm.setMessage("Добро пожаловать, " + user.getLogin());
-                return Action.LOGIN.okPage;
+
+                //получим данные профиля вызывая метод другой команды
+                return by.it.sereda.project.java.Action.PROFILE.command.execute(request);
+
             } catch (Exception e) {
                 frm.setErrorMessage("Неверные данные повторите ввод.");
             }
