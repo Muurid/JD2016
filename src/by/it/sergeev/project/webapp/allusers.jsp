@@ -2,25 +2,6 @@
 <%@ include file="include/begin-html.jsp" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
-<!--
-=========================================================================================
-Эта страница использует EL+JSTL - Java Standart Template Library
-Чтобы это было возможно необходимо
-1. Скачать библиотеку http://central.maven.org/maven2/javax/servlet/jstl/1.2/jstl-1.2.jar
-2. Положить ее в папку lib.local вашего проекта (она потом копируется через ant в WEB-INF)
-3. Объявить применение тегов JSTL указав в заголовке
-   <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-4. После этого становятся доступными конструкции вида
-    <с:out value="текст" />                                 НЕ КОПИРУЙТЕ ЭТОТ КОД
-    <с:forEach var="yourItem" items="yourListItems">        НЕ КОПИРУЙТЕ ЭТОТ КОД
-          ${yourItem}<br> или ${yourItem.свойство}<br>      НЕ КОПИРУЙТЕ ЭТОТ КОД
-    <с:forEach>                                             НЕ КОПИРУЙТЕ ЭТОТ КОД
-(НЕ КОПИРУЙТЕ КОД ВЫШЕ, ТУТ <с:out - записано русскими буквами
-так сделано специально, чтобы не было замены при старте jsp)
-
-а код ниже можно использовать, он рабочий)
-=========================================================================================
--->
    <div class="row">
     <b>
         <div class=col-md-1>ID</div>
@@ -79,6 +60,5 @@
         </div>
    <br>
    </c:forEach>
-   и т.д.
 
 <%@ include file="include/end-html.jsp" %>

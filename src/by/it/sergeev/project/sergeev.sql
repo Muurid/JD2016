@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Хост: 127.0.0.1:2016
--- Время создания: Июл 18 2016 г., 22:53
+-- Время создания: Июл 19 2016 г., 14:25
 -- Версия сервера: 10.1.10-MariaDB
 -- Версия PHP: 5.6.15
 
@@ -42,8 +42,15 @@ CREATE TABLE `ad` (
 --
 
 INSERT INTO `ad` (`ID`, `Electronics`, `Manufacturer`, `Name`, `Model`, `Price`, `Description`, `FK_Users`) VALUES
-(1, 'electronics', 'manufacturerккк', 'name', 'model', 3, 'description', 1),
-(2, 'notebooks', 'Apple', 'Macbook Pro 15', 'MJLT2', 4799, '15.4" 2880 x 1800 глянцевый, Intel Core i7 2500 МГц, 16 ГБ, 512 Гб (SSD), AMD Radeon R9 M370X, OS X, цвет корпуса серебристый', 2);
+(2, 'notebooks', 'Apple', 'Macbook Pro 15', 'MJLT2', 4799, '15.4" 2880 x 1800 глянцевый, Intel Core i7 2500 МГц, 16 ГБ, 512 Гб (SSD), AMD Radeon R9 M370X, OS X, цвет корпуса серебристый', 2),
+(3, 'notebooks', 'Samsung', 'ATIV', 'NP905S3G', 1539, '13.3" 1366 x 768 матовый, AMD A6 1450 1000 МГц, 4 ГБ, 128 Гб (SSD), AMD Radeon HD 8250, Windows 8, цвет корпуса белый', 2),
+(4, 'notebooks', 'Lenovo', 'ThinkPad P70', '20ER0029RT', 8320, '17.3" 1920 x 1080, Intel Xeon E3-1505M v5 2800 МГц, 16 ГБ, 1000 ГБ + 256 Гб (HDD + SSD), NVIDIA Quadro M3000M, цвет корпуса черный', 2),
+(5, 'phones', 'Apple', 'iPhone 6s Plus', '128GB', 2200, 'Apple iOS, экран 5.5" IPS (1080x1920), ОЗУ 2 ГБ, флэш-память 128 ГБ, камера 12 Мп, цвет розовый', 2),
+(6, 'phones', 'Samsung', 'Galaxy Note 5', '128GB', 2000, 'Android, экран 5.7" AMOLED (1440x2560), ОЗУ 4 ГБ, флэш-память 128 ГБ, камера 16 Мп, аккумулятор 3000 мАч, цвет розовый', 2),
+(7, 'phones', 'Lenovo', 'Vibe X3', '32GB', 1029, 'Android, экран 5.5" IPS (1080x1920), ОЗУ 3 ГБ, флэш-память 32 ГБ, карты памяти, камера 21 Мп, аккумулятор 3600 мАч, Dual SIM, цвет белый', 2),
+(8, 'tablets', 'Apple', 'iPad Pro Gold', '256GB', 3104, '12.9" IPS (2732x2048), iOS, ОЗУ 4 ГБ, флэш-память 256 ГБ, цвет золотистый', 2),
+(9, 'tablets', 'Samsung', 'Galaxy View', '32GB', 2070, '18.4" (1920x1080), Android, ОЗУ 2 ГБ, флэш-память 32 ГБ, LTE, цвет черный', 2),
+(10, 'tablets', 'Lenovo', 'ThinkPad', '128GB', 1921, '10.1" IPS (1920x1200), Windows 10, ОЗУ 4 ГБ, флэш-память 128 ГБ, LTE, цвет черный', 2);
 
 -- --------------------------------------------------------
 
@@ -121,7 +128,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT для таблицы `ad`
 --
 ALTER TABLE `ad`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 --
 -- AUTO_INCREMENT для таблицы `users`
 --

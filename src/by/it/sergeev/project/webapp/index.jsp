@@ -7,26 +7,42 @@
         <h1>Catalog</h1>
       </div>
              <div class="row">
-                     <div class="col-md-1"><b>№</b></div>
-                     <div class="col-md-2"><b>Electronics</b></div>
-                     <div class="col-md-1"><b>Manufacturer</b></div>
-                     <div class="col-md-1"><b>Name</b></div>
+                     <div class="col-md-2"><b>Manufacturer</b></div>
+                     <div class="col-md-2"><b>Name</b></div>
                      <div class="col-md-1"><b>Model</b></div>
-                     <div class="col-md-1"><b>Price</b></div>
-                     <div class="col-md-5"><b>Description</b></div>
+                     <div class="col-md-4"><b>Description</b></div>
+                     <div class="col-md-2"><b>Price</b></div>
+                     <div class="col-md-1"></div>
                    </div>
-          <% Integer i=0; %>
-          <c:forEach items="${ads}" var="ad">
-             <br />
-             <div class="row">
-                     <div class="row">
-                     <div class="col-md-1"><%out.print(++i);%></div>
-                     <div class="col-md-2">${ad.electronics} </div>
-                     <div class="col-md-1">${ad.manufacturer}</div>
-                     <div class="col-md-1">${ad.name}</div>
-                     <div class="col-md-1">${ad.model}</div>
-                     <div class="col-md-1">${ad.price}</div>
-                     <div class="col-md-5">${ad.description}</div>
-                     </div>
-          </c:forEach>
+         <c:forEach items="${ads}" var="ad">
+                  <div class="row">
+                      <div class=col-md-2>
+                          <input id="textinput" name="manufacturer" type="text"
+                          value="${ad.manufacturer}" class="form-control input-md">
+                      </div>
+                      <div class=col-md-2>
+                          <input id="textinput" name="name" type="text"
+                          value="${ad.name}" class="form-control input-md">
+                      </div>
+                      <div class=col-md-1>
+                          <input id="textinput" name="model" type="text"
+                          value="${ad.model}" class="form-control input-md">
+                      </div>
+                      <div class="col-md-4">${ad.description}</div>
+
+                      <div class=col-md-2><b>
+                          <input id="textinput" name="price" type="text"
+                          value="${ad.price}" class="form-control input-md">
+                          </b></div>
+
+                      <div class=col-md-1>
+                          <button id="singlebutton" name="singlebutton" class="btn btn-success"
+                          onclick="document.getElementById('user_id_${user.id}').value=-document.getElementById('user_id_${user.id}').value;">
+                              Buy
+                          </button>
+                      </div>
+                  </form>
+                  </div>
+             <br>
+             </c:forEach>
 <%@ include file="include/end-html.jsp" %>
