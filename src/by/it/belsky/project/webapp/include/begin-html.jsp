@@ -24,12 +24,12 @@
               <span class="icon-bar"></span>
               <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href=".">Главная</a>
+            <a class="navbar-brand" href="do?command=Index">Главная</a>
           </div>
           <div class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
               <li><a href="do?command=CreateForm">Создать форму</a></li>
-              <li><a href="do?command=ShowUsers">Список пользователей</a></li>
+              <li><a href="do?command=AllUsers">Список пользователей</a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
               <li><a href="do?command=SignUp">Зарегистрироваться</a></li>
