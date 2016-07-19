@@ -4,11 +4,8 @@
 <div class="container">
     <div class="row">
         <div class="col-sm-12">
-            <h3>Авторизация</h3>
             <form class="form-horizontal" action="do?command=login_send_form" method="post" accept-charset="UTF-8">
                 <fieldset>
-
-                    <!-- Text input-->
                     <div class="form-group">
                         <label class="col-md-4 control-label" for="login">Логин</label>
                         <div class="col-md-5">
@@ -18,7 +15,6 @@
                         </div>
                     </div>
 
-                    <!-- Password input-->
                     <div class="form-group">
                         <label class="col-md-4 control-label" for="password">Пароль</label>
                         <div class="col-md-5">
@@ -29,19 +25,21 @@
                         </div>
                     </div>
 
-                    <!-- Button -->
                     <div class="form-group">
                         <label class="col-md-4 control-label" for=""></label>
                         <div class="col-md-4">
                             <button id="" name="" class="btn btn-primary">Войти</button>
                         </div>
+
+                        <div class="col-md-4">
+                            <a class="btn btn-primary" href="do?command=register" role="button">Зарегистрироваться</a>
+                        </div>
                     </div>
 
-                    <!-- Button -->
                     <div class="form-group">
                          <label class="col-md-4 control-label" for=""></label>
                          <div class="col-md-4">
-                              <a class="btn btn-primary" href="do?command=register" role="button">Зарегистрироваться</a>
+                            <a class="btn btn-primary" href="do?command=index" role="button">На главную</a>
                          </div>
                     </div>
                 </fieldset>

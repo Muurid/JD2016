@@ -11,11 +11,13 @@ import javax.servlet.http.HttpSession;
 import java.util.List;
 
 public class CommandLoginSendForm implements ActionCommand {
+
     @Override
     public String execute(HttpServletRequest request) {
         String viewPage = Action.LOGIN_SEND_FORM.viewPage;
         String login = request.getParameter("login");
         String password = request.getParameter("password");
+
         if (Utility.isValid(login, Pattern.loginRegex) && Utility.isValid(password, Pattern.passwordRegex)) {
             UserDAO userDAO = DAO.getDao().getUserDAO();
             List<User> users = userDAO.readAll(String.format("WHERE login = '%s' AND password = '%s'", login, password));
@@ -26,10 +28,10 @@ public class CommandLoginSendForm implements ActionCommand {
             String message = request.getAttribute("message").toString();
             if (user != null) {
                 HttpSession session = request.getSession(true);
-                session.setAttribute("user", user);
+                session.setAttribute("sessionUser", user);
                 request.setAttribute(Action.message, message.concat("Добро пожаловать, ").concat(user.getLogin()));
             } else {
-                request.setAttribute(Action.message, message.concat("Введены неверные данные!"));
+                request.setAttribute(Action.errorMessage, "Введены неверные данные!");
                 viewPage = Action.LOGIN.viewPage;
             }
         }

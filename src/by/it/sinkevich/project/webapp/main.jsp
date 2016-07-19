@@ -47,14 +47,14 @@
             <div class="row">
                 <div class="col-md-1">Номер забега</div>
                 <div class="col-md-2">Время забега</div>
-                <div class="col-md-1">Лошадь1</div>
-                <div class="col-md-1">Лошадь2</div>
-                <div class="col-md-1">Лошадь3</div>
-                <div class="col-md-1">Лошадь4</div>
-                <div class="col-md-1">Лошадь5</div>
-                <div class="col-md-1">Лошадь6</div>
-                <div class="col-md-1">Лошадь7</div>
-                <div class="col-md-1">Лошадь8</div>
+                <div class="col-md-1">Лошадь№1</div>
+                <div class="col-md-1">Лошадь№2</div>
+                <div class="col-md-1">Лошадь№3</div>
+                <div class="col-md-1">Лошадь№4</div>
+                <div class="col-md-1">Лошадь№5</div>
+                <div class="col-md-1">Лошадь№6</div>
+                <div class="col-md-1">Лошадь№7</div>
+                <div class="col-md-1">Лошадь№8</div>
                 <div class="col-md-1">Победитель</div>
             </div>
 
@@ -73,16 +73,6 @@
                     <div class="col-md-1">${race.winner}</div>
                 </div>
             </c:forEach>
-        </div>
-
-        <div class="col-md-3">
-            <h3>
-                Тут<br>
-                могла<br>
-                быть<br>
-                ваша<br>
-                реклама<br>
-            </h3>
         </div>
     </div>
 </div>
