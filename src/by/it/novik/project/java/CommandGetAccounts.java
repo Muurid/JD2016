@@ -25,10 +25,12 @@ public class CommandGetAccounts implements ActionCommand{
         if (!listAccounts.isEmpty()) {
             request.setAttribute(Action.msgMessage, "List of accounts for user " + user.getNickname());
             request.setAttribute("listAccounts", listAccounts);
+            request.setAttribute("type","success");
             page = Action.ACCOUNTS.okPage;
         }
         else {
             request.setAttribute(Action.msgMessage, "Accounts don't exist.");
+            request.setAttribute("type","info");
             page = Action.ACCOUNTS.inPage;
         }
 

@@ -6,13 +6,13 @@
 <div class="main container">
     <div class="row">
         <div class="pull-right">
-            <p>(<button type="button" class="btn btn-link">
-            <c:out value="${user.nickname}" /></button>)
+            <p>(<a href="do?command=Profile" type="button" class="btn btn-link">
+            <c:out value="${user.nickname}" /></a>)
             </p>
         </div>
     </div>
     <div class="row">
-        <div class="col-sm-offset-3">
+        <div class="col-sm-offset-5">
             <h2>Payments</h2>
         </div>
     </div>

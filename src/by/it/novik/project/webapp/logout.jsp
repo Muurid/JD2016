@@ -3,16 +3,14 @@
 
 <div class="main container">
     <div class="row">
-        <div class="col-sm-offset-3">
-            <h2>Ending session</h2>
-        </div>
+    <legend> <h3>Ending session</h3></legend>
     </div>
     <div class="row">
         <div class="col-sm-6 col-sm-offset-3">
 
                 <div class="form-group">
                     <div class="col-sm-offset-9 col-sm-3">
-                        <a href="do?command=Logout&ButtonLogout=2" type="submit" class="btn btn-default">Log Out</a>
+                        <a href="do?command=Logout&ButtonLogout=2" type="submit" class="btn btn-success">Log Out</a>
                     </div>
                 </div>
 
