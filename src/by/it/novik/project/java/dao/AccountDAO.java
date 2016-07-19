@@ -16,9 +16,12 @@ import java.util.List;
 public class AccountDAO extends AbstractDAO implements IDAO<Account,Integer> {
 //    public static void main(String[] args) {
 //        DAO dao = DAO.getDAO();
-//        Account account = dao.getAccountDAO().read(2);
+//        Account account = dao.getAccountDAO().read(15);
+//        Double balance = account.getBalans();
 //        //Меняем поле счета на заблокированное
-//        account.setState("Lock");
+//        System.out.println(balance);
+//        Double source_amount = balance - 300;
+//        account.setBalans(source_amount);
 //        System.out.println(account);
 //        System.out.println(dao.getAccountDAO().update(account));
 //

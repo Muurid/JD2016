@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <users>
-    <User idUser="1">
+    <User ID="1">
         <First_Name>Иван</First_Name>
         <Middle_Name>Иванович</Middle_Name>
         <Last_Name>Иванов</Last_Name>
@@ -22,7 +22,7 @@
             </Payment>
         </Account>
     </User>
-    <User idUser="2">
+    <User ID="2">
         <First_Name>Олег</First_Name>
         <Middle_Name>Иванович</Middle_Name>
         <Last_Name>Сидоров</Last_Name>

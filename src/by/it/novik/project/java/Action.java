@@ -41,7 +41,7 @@ enum Action {
         {
             this.command = new CommandCreateAccount();
             this.inPage="/accounts.jsp";
-            this.okPage ="/accounts.jsp";
+            this.okPage ="/do?command=Accounts";
         }
     },
     PAYMENTS {
@@ -55,7 +55,7 @@ enum Action {
         {
             this.command = new CommandPay();
             this.inPage="/pay.jsp";
-            this.okPage ="/payments.jsp";
+            this.okPage ="/do?command=Payments";
         }
     },
     REFILL {
@@ -69,7 +69,7 @@ enum Action {
         {
             this.command = new CommandBlocking();
             this.inPage="/block.jsp";
-            this.okPage ="/accounts.jsp";
+            this.okPage ="/do?command=Accounts";
         }
     },
     ERROR {

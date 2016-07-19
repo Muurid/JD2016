@@ -15,7 +15,6 @@
                     <li><a href=do?command=Payments>Payments</a></li>
                     <li><a href=do?command=Logout>Log out</a></li>
                     <li></li>
-                     <li>${message}</li>
                 </ul>
             </div>
         </div>
