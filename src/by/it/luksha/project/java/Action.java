@@ -31,7 +31,23 @@ enum Action {
         {
             this.command = new CommandIndex();
             this.inPage="/index.jsp";
-            this.okPage ="/index.jsp";
+            this.okPage ="/order.jsp";
+        }
+    },
+    //показать всех пользователей в кабинете администратора
+    SHOWALLUSERS {
+        {
+            this.command = new CommandShowAllUsers();
+            this.inPage="/admincab.jsp";
+            this.okPage ="/admincab.jsp";
+        }
+    },
+    //показать всех пользователей в кабинете администратора
+    SHOWALLUSERS {
+        {
+            this.command = new CommandShowAllUsers();
+            this.inPage="/admincab.jsp";
+            this.okPage ="/admincab.jsp";
         }
     },
     //добавление заказа
@@ -39,7 +55,7 @@ enum Action {
         {
             this.command = new CommandAddOrder();
             this.inPage="/order.jsp";
-            this.okPage ="/order.jsp";
+            this.okPage ="/orderok.jsp";
         }
     },
     //

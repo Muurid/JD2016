@@ -41,7 +41,6 @@ public class Controller extends HttpServlet {
 
         User user = (User) request.getSession(true).getAttribute("user");
 
-
         if (user != null) {
             /**
              * Создание cookie для логина
@@ -57,6 +56,10 @@ public class Controller extends HttpServlet {
             Cookie cookiePassword = new Cookie("Password", user.getPassword());
             cookiePassword.setMaxAge(24 * 60 * 60);
             response.addCookie(cookiePassword);
+
+            Cookie cookieCar = new Cookie("Car", String.valueOf(0));
+            cookieLogin.setMaxAge(24 * 60 * 60);
+            response.addCookie(cookieCar);
         }
 
         //метод отправляет пользователю страницу ответа

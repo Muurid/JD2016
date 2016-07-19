@@ -17,7 +17,7 @@ public class CommandIndex implements ActionCommand {
 
         CarDAO carDAO = DAO.getDAO().getCarDAO();
         List<Car> cars = carDAO.getAll("");
-        request.setAttribute("ListCars", cars.toString());
+        request.setAttribute("ListCars", cars);
 
         return resultPage;
     }

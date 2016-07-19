@@ -6,7 +6,7 @@ import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
-public class CommandSignOut implements by.it.luksha.project.java.ActionCommand {
+public class CommandSignOut implements ActionCommand {
     @Override
     public String execute(HttpServletRequest request) {
         String resultPage;
