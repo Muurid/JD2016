@@ -3,12 +3,11 @@
 
 <div class="jumbotron text-center">
     <h1>Регистрация</h1>
+    <p>${errorMessage}</p>
 </div>
 
-<form class="form-horizontal" action="do?command=register" method="post" accept-charset="UTF-8">
+<form class="form-horizontal" action="do?command=register_send_form" method="post" accept-charset="UTF-8">
     <fieldset>
-
-        <!-- Text input-->
         <div class="form-group">
             <label class="col-md-4 control-label" for="name">Ф.И.О.</label>
             <div class="col-md-5">
@@ -17,17 +16,15 @@
             </div>
         </div>
 
-        <!-- Text input-->
         <div class="form-group">
             <label class="col-md-4 control-label" for="dateOfBirth">Дата рождения</label>
             <div class="col-md-4">
                 <input id="dateOfBirth" name="dateOfBirth" type="text" placeholder="ГГГГ-ММ-ДД"
                        class="form-control input-md" required="">
-                <span class="help-block">Введите вашу дату рождения (1986-11-08)</span>
+                <span class="help-block">Введите вашу дату рождения</span>
             </div>
         </div>
 
-        <!-- Email input-->
         <div class="form-group">
             <label class="col-md-4 control-label" for="email">Адрес почты</label>
             <div class="col-md-4">
@@ -36,7 +33,6 @@
             </div>
         </div>
 
-        <!-- Text input-->
         <div class="form-group">
             <label class="col-md-4 control-label" for="login">Логин</label>
             <div class="col-md-5">
@@ -46,7 +42,6 @@
             </div>
         </div>
 
-        <!-- Password input-->
         <div class="form-group">
             <label class="col-md-4 control-label" for="password">Пароль</label>
             <div class="col-md-5">
@@ -56,7 +51,6 @@
             </div>
         </div>
 
-        <!-- Button -->
         <div class="form-group">
             <label class="col-md-4 control-label" for=""></label>
             <div class="col-md-4">
@@ -64,12 +58,11 @@
             </div>
         </div>
 
-        <!-- Button -->
         <div class="form-group">
-             <label class="col-md-4 control-label" for=""></label>
-             <div class="col-md-4">
-                  <a class="btn btn-primary" href="do?command=index" role="button">На главную</a>
-             </div>
+            <label class="col-md-4 control-label" for=""></label>
+            <div class="col-md-4">
+                <a class="btn btn-primary" href="do?command=index" role="button">На главную</a>
+            </div>
         </div>
     </fieldset>
 </form>
