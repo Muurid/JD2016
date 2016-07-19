@@ -51,8 +51,8 @@
             <div class="col-md-4">
                 <select id="role" name="FK_role" class="form-control">
                     <option value="2">User</option>
-                    <option value="1">Administrator</option>
                     <option value="3">Hotel</option>
+                    <option value="1">Administrator</option>
                 </select>
             </div>
         </div>
