@@ -1,10 +1,6 @@
 package by.it.luksha.project.java.beans;
 
 /**
- * Created by MMauz on 07.07.2016.
- */
-
-/**
  * BEAN для сущности Car из таблицы cars
  */
 public class Car {

@@ -10,9 +10,6 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * Created by MMauz on 12.07.2016.
- */
 public class CarDAO extends AbstractDAO implements IDAO<Integer, Car> {
     @Override
     public boolean create(Car car) {

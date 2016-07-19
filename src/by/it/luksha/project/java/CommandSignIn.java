@@ -6,7 +6,6 @@ import by.it.luksha.project.java.dao.UserDAO;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
-import java.util.List;
 
 public class CommandSignIn implements ActionCommand {
     @Override

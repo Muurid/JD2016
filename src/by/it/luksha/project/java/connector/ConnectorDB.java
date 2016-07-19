@@ -29,6 +29,7 @@ public class ConnectorDB {
 
     /**
      * Получает connection к БД
+     *
      * @return connection
      * @throws SQLException
      */

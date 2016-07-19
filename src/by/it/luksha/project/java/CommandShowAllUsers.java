@@ -8,9 +8,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import java.util.List;
 
-/**
- * Created by MMauz on 17.07.2016.
- */
 public class CommandShowAllUsers implements ActionCommand {
     @Override
     public String execute(HttpServletRequest request) {

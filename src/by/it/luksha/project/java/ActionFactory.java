@@ -1,6 +1,5 @@
 package by.it.luksha.project.java;
 
-
 import javax.servlet.http.HttpServletRequest;
 
 public class ActionFactory {
@@ -14,8 +13,8 @@ public class ActionFactory {
                 Action currentEnum = Action.valueOf(action.toUpperCase());
                 current = currentEnum.getCurrentCommand();
             } catch (IllegalArgumentException e) {
-                request.setAttribute(Action.msgError, "<b>Unknown command "+action+"</b>");
-                request.setAttribute(Action.msgMessage, "<b>Unknown command "+action+"</b>");
+                request.setAttribute(Action.msgError, "<b>Unknown command " + action + "</b>");
+                request.setAttribute(Action.msgMessage, "<b>Unknown command " + action + "</b>");
             }
         }
         //если команда не найдена, то вернем пустую.
