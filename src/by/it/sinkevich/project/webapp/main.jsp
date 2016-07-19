@@ -9,34 +9,16 @@
         </div>
 
         <div class="col-md-3">
-            <form class="form-horizontal" action="do?command=login_send_form" method="post" accept-charset="UTF-8">
-                <fieldset>
-                    <div class="form-group input-sm">
-                        <label class="col-md-3 control-label" for="login">Логин</label>
-                        <div class="col-md-9">
-                            <input id="login" name="login" type="text" placeholder="Логин" class="form-control input-sm"
-                                   required="">
+            <div class="row">
+                <p><strong>Логин: </strong>${sessionUser.login}</p>
+            </div>
 
-                        </div>
-                    </div>
-
-                    <div class="form-group input-sm">
-                        <label class="col-md-3 control-label" for="password">Пароль</label>
-                        <div class="col-md-9">
-                            <input id="password" name="password" type="password" placeholder="Пароль"
-                                   class="form-control input-sm"
-                                   required="">
-
-                        </div>
-                    </div>
-
-                    <div class="form-group">
-                        <div class="col-md-4">
-                            <a class="btn btn-primary btn-sm" href="do?command=logout" role="button">Выйти</a>
-                        </div>
-                    </div>
-                </fieldset>
-            </form>
+            <div class="row">
+                <p><strong>Почта: </strong>${sessionUser.email}</p>
+            </div>
+            <div class="row">
+                <p><a class="btn btn-primary btn-sm" href="do?command=logout" role="button">Выйти</a></p>
+            </div>
         </div>
     </div>
 
@@ -74,7 +56,57 @@
                 </div>
             </c:forEach>
         </div>
+
+        <div class="col-md-3">
+            <c:choose>
+                <c:when test="${sessionUserRole.name=='Bookmaker'}">
+                    <div class="row">
+                        <p><a class="btn btn-primary" href="do?command=add_race" role="button">Добавить забег</a></p>
+                    </div>
+
+                    <div class="row">
+                        <p><a class="btn btn-primary" href="do?command=view_clients" role="button">Список клиентов</a>
+                        </p>
+                    </div>
+
+                    <div class="row">
+                        <p><a class="btn btn-primary" href="do?command=view_bets" role="button">Список ставок</a></p>
+                    </div>
+                </c:when>
+                <c:otherwise>
+                    <div class="row">
+                        <p><a class="btn btn-primary" href="do?command=place_bet" role="button">Поставить ставку</a></p>
+                    </div>
+                </c:otherwise>
+            </c:choose>
+        </div>
     </div>
+
+    <c:if test="${sessionUserRole.name == 'Client'}">
+        <div class="row">
+            <div class="col-md-9">
+                <h3>Список ставок</h3>
+
+                <div class="row">
+                    <div class="col-md-2">Номер ставки</div>
+                    <div class="col-md-4">Время ставки</div>
+                    <div class="col-md-2">Номер забега</div>
+                    <div class="col-md-2">Лошадь</div>
+                    <div class="col-md-2">Сумма ставки</div>
+                </div>
+
+                <c:forEach items="${sessionUserBets}" var="bet">
+                    <div class="row">
+                        <div class="col-md-2">${bet.id}</div>
+                        <div class="col-md-4">${bet.time}</div>
+                        <div class="col-md-2">${bet.fk_race}</div>
+                        <div class="col-md-2">${bet.horse}</div>
+                        <div class="col-md-2">${bet.betSum}</div>
+                    </div>
+                </c:forEach>
+            </div>
+        </div>
+    </c:if>
 </div>
 
 <%@ include file="include/footer.jsp" %>

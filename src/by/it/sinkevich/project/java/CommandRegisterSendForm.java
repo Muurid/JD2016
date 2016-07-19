@@ -33,6 +33,7 @@ public class CommandRegisterSendForm implements ActionCommand {
             user.setEmail(email);
             user.setFk_role(2);
             user.setLogin(login);
+            //password = DigestUtils.md5Hex(password);
             user.setPassword(password);
 
             UserDAO userDAO = DAO.getDao().getUserDAO();

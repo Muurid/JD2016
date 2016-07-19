@@ -1,5 +1,6 @@
 package by.it.sinkevich.project.java;
 
+import by.it.sinkevich.project.java.bean.Role;
 import by.it.sinkevich.project.java.bean.User;
 import by.it.sinkevich.project.java.dao.DAO;
 import by.it.sinkevich.project.java.dao.UserDAO;
@@ -19,6 +20,7 @@ public class CommandLoginSendForm implements ActionCommand {
         String password = request.getParameter("password");
 
         if (Utility.isValid(login, Pattern.loginRegex) && Utility.isValid(password, Pattern.passwordRegex)) {
+            //password = DigestUtils.md5Hex(password);
             UserDAO userDAO = DAO.getDao().getUserDAO();
             List<User> users = userDAO.readAll(String.format("WHERE login = '%s' AND password = '%s'", login, password));
             User user = null;
@@ -29,7 +31,10 @@ public class CommandLoginSendForm implements ActionCommand {
             if (user != null) {
                 HttpSession session = request.getSession(true);
                 session.setAttribute("sessionUser", user);
+                Role sessionUserRole = DAO.getDao().getRoleDAO().read(user.getId());
+                session.setAttribute("sessionUserRole", sessionUserRole);
                 request.setAttribute(Action.message, message.concat("Добро пожаловать, ").concat(user.getLogin()));
+                return Action.MAIN.command.execute(request);
             } else {
                 request.setAttribute(Action.errorMessage, "Введены неверные данные!");
                 viewPage = Action.LOGIN.viewPage;

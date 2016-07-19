@@ -33,6 +33,12 @@ public enum Action {
             viewPage = "/login.jsp";
         }
     },
+    MAIN {
+        {
+            command = new CommandMain();
+            viewPage = "/main.jsp";
+        }
+    },
     LOGOUT {
         {
             command = new CommandLogout();
@@ -48,12 +54,12 @@ public enum Action {
     PLACE_BET {
         {
             command = new CommandPlaceBet();
-            viewPage = "/main.jsp";
+            viewPage = "/place_bet.jsp";
         }
     },
-    VIEW_RACES {
+    PLACE_BET_SEND_FORM {
         {
-            command = new CommandViewRaces();
+            command = new CommandPlaceBetSendForm();
             viewPage = "/main.jsp";
         }
     };
