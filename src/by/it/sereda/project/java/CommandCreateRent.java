@@ -22,7 +22,7 @@ public class CommandCreateRent implements ActionCommand {
             Rent rent =new Rent();
             rent.setID(0);
             rent.setAddress(frm.getString("Address"));
-            rent.setCity(frm.getString("City"));
+            rent.setHotels(frm.getString("Hotels"));
             rent.setRating(frm.getDouble("Rating"));
             rent.setPrice(frm.getDouble("Price"));
             rent.setFloor(frm.getInt("Floor"));

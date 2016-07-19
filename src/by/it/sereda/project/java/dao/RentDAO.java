@@ -25,7 +25,7 @@ public class RentDAO extends AbstractDAO implements InterfaceDAO<Rent> {
     public boolean create(Rent rent) {
         //локаль нужна,т.к. есть дробные числа. Их нужно указывать через точку
         String sql = String.format(Locale.ENGLISH,
-                "insert INTO rent(RoomCount,Price,Rating,Floor,Guests,Address,City,FK_Users)" +
+                "insert INTO rent(RoomCount,Price,Rating,Floor,Guests,Address,Hotels,FK_Users)" +
                         "\n values('%d', '%.3f', '%.3f', '%d', '%d', '%s', '%s' ,'%d');",
                 rent.getRoomCount(),
                 rent.getPrice(),
@@ -33,7 +33,7 @@ public class RentDAO extends AbstractDAO implements InterfaceDAO<Rent> {
                 rent.getFloor(),
                 rent.getGuests(),
                 rent.getAddress(),
-                rent.getCity(),
+                rent.getHotels(),
                 rent.getFK_Users()
         );
         rent.setID(executeUpdate(sql));
@@ -51,7 +51,7 @@ public class RentDAO extends AbstractDAO implements InterfaceDAO<Rent> {
                         ",`Floor`=%d" +
                         ",`Guests`=%d" +
                         ",`Address`='%s'" +
-                        ",`City`='%s'" +
+                        ",`Hotels`='%s'" +
                         ",`FK_Users`=%d " +
                         " WHERE `rent`.`ID` = %d",
                 rent.getRoomCount(),
@@ -60,7 +60,7 @@ public class RentDAO extends AbstractDAO implements InterfaceDAO<Rent> {
                 rent.getFloor(),
                 rent.getGuests(),
                 rent.getAddress(),
-                rent.getCity(),
+                rent.getHotels(),
                 rent.getFK_Users(),
                 rent.getID()
         );
@@ -89,7 +89,7 @@ public class RentDAO extends AbstractDAO implements InterfaceDAO<Rent> {
                 rent.setID(rs.getInt("ID"));
                 rent.setAddress(rs.getString("Address"));
                 rent.setRating(rs.getDouble("Rating"));
-                rent.setCity(rs.getString("City"));
+                rent.setHotels(rs.getString("Hotels"));
                 rent.setFK_Users(rs.getInt("FK_Users"));
                 rent.setFloor(rs.getInt("Floor"));
                 rent.setGuests(rs.getInt("Guests"));

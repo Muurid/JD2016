@@ -10,28 +10,26 @@
 
              <div class="row">
                <div class="col-md-1">№</div>
-               <div class="col-md-1">Цена</div>
+               <div class="col-md-3">Отель</div>
                <div class="col-md-3">Адрес</div>
-               <div class="col-md-3">Описание</div>
                <div class="col-md-1">Число комнат</div>
-               <div class="col-md-1">Площадь</div>
-               <div class="col-md-1">Этаж</div>
-               <div class="col-md-1">Этажность</div>
-               <div class="col-md-1">Этажность</div>
-
+               <div class="col-md-1">Количество гостей</div>
+               <div class="col-md-1">Количество детей</div>
+               <div class="col-md-1">Оценка</div>
+               <div class="col-md-1">Цена за ночь</div>
              </div>
           <% Integer i=0; %>
           <c:forEach items="${rents}" var="rent">
              <br />
              <div class="row">
                <div class="col-md-1"><% out.print(++i); %></div>
-               <div class="col-md-1">${rent.price} </div>
+               <div class="col-md-3">${rent.hotels}</div>
                <div class="col-md-3">${rent.address}</div>
-               <div class="col-md-3">${rent.city}</div>
                <div class="col-md-1">${rent.roomCount}</div>
-               <div class="col-md-1">${rent.rating}</div>
-               <div class="col-md-1">${rent.floor}</div>
                <div class="col-md-1">${rent.guests}</div>
+               <div class="col-md-1">${rent.floor}</div>
+               <div class="col-md-1">${rent.rating}</div>
+               <div class="col-md-1">${rent.price} </div>
              </div>
           </c:forEach>
 

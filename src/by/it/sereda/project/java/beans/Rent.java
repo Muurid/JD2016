@@ -9,13 +9,13 @@ public class Rent {
     private int Floor;
     private int Guests;
     private String Address;
-    private String City;
+    private String Hotels;
     private int FK_Users;
 
     public Rent() {
     }
 
-    public Rent(int ID, int roomCount, double price, double rating, int floor, int guests, String address, String city, int FK_Users) {
+    public Rent(int ID, int roomCount, double price, double rating, int floor, int guests, String address, String hotels, int FK_Users) {
         this.ID = ID;
         RoomCount = roomCount;
         Price = price;
@@ -23,7 +23,7 @@ public class Rent {
         Floor = floor;
         Guests = guests;
         Address = address;
-        City = City;
+        Hotels = hotels;
         this.FK_Users = FK_Users;
     }
 
@@ -85,12 +85,12 @@ public class Rent {
         Address = address;
     }
 
-    public String getCity() {
-        return City;
+    public String getHotels() {
+        return Hotels;
     }
 
-    public void setCity(String city) {
-        City = city;
+    public void setHotels(String hotels) {
+        Hotels = hotels;
     }
 
     public int getFK_Users() {
@@ -111,7 +111,7 @@ public class Rent {
                 ", Floor=" + Floor +
                 ", Guests=" + Guests +
                 ", Address='" + Address + '\'' +
-                ", City='" + City + '\'' +
+                ", Hotels='" + Hotels + '\'' +
                 ", FK_Users=" + FK_Users +
                 "}\n";
     }
@@ -131,7 +131,7 @@ public class Rent {
         if (Guests != rent.Guests) return false;
         if (FK_Users != rent.FK_Users) return false;
         if (Address != null ? !Address.equals(rent.Address) : rent.Address != null) return false;
-        return City != null ? City.equals(rent.City) : rent.City == null;
+        return Hotels != null ? Hotels.equals(rent.Hotels) : rent.Hotels == null;
 
     }
 
@@ -148,7 +148,7 @@ public class Rent {
         result = 31 * result + Floor;
         result = 31 * result + Guests;
         result = 31 * result + (Address != null ? Address.hashCode() : 0);
-        result = 31 * result + (City != null ? City.hashCode() : 0);
+        result = 31 * result + (Hotels != null ? Hotels.hashCode() : 0);
         result = 31 * result + FK_Users;
         return result;
     }
