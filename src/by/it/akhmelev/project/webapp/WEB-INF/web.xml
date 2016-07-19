@@ -13,13 +13,28 @@
     <servlet>
         <servlet-name>Controller</servlet-name>
         <servlet-class>by.it.akhmelev.project.java.Controller</servlet-class>
+
+        <!-- параметры подключения к базе данных. Их можно прочитать в методе init сервлета -->
+        <init-param>
+            <param-name>URL_DB</param-name>
+            <param-value>jdbc:mysql://127.0.0.1:2016/it_academy?useUnicode=true&amp;characterEncoding=UTF-8</param-value>
+        </init-param>
+
+        <init-param>
+            <param-name>USER_DB</param-name>
+            <param-value>root</param-value>
+        </init-param>
+
+        <init-param>
+            <param-name>PASSWORD_DB</param-name>
+            <param-value></param-value>
+        </init-param>
     </servlet>
     <servlet-mapping>
         <servlet-name>Controller</servlet-name>
         <url-pattern></url-pattern>
         <url-pattern>/do</url-pattern>
     </servlet-mapping>
-
 
     <filter>
         <filter-name>FilterUTF8</filter-name>

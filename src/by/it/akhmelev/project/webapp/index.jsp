@@ -6,6 +6,7 @@
       <div class="page-header">
         <h1>Все объявления</h1>
         <p class="lead">Пример макета для вывода данных в виде таблицы</p>
+        <p>${user.email} ${user.login}</p>
       </div>
 
              <div class="row">
