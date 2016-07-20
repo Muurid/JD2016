@@ -4,7 +4,7 @@
   <div class="container">
     <p>Сообщение сервера: ${message}</p>
 
-    <p>IT-academy © 2016 <a href="#">Реквизиты и контакты</a> </p>
+    <p>IT-academy © 2016 <a href="http://vk.com/s.vasilevich" target="_blank">Vasilevich Sergey</a> </p>
   </div>
 </footer>
 

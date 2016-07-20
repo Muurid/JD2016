@@ -7,7 +7,7 @@ import by.it.vasilevich.project.java.dao.DAO;
 import javax.servlet.http.HttpServletRequest;
 import java.util.List;
 
-public class CommandIndex implements by.it.vasilevich.project.java.ActionCommand {
+public class CommandIndex implements ActionCommand {
     @Override
     public String execute(HttpServletRequest request) {
         List<Ad> ads = DAO.getDAO().ad.getAll("");

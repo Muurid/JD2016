@@ -22,6 +22,7 @@ public class CommandCreateAd implements ActionCommand {
         try {
             Ad ad=new Ad();
             ad.setID(0);
+            ad.setPrice(frm.getInt("Price"));
             ad.setBrand(frm.getString("Brand"));
             ad.setModel(frm.getString("Model"));
             ad.setType(frm.getString("Type"));

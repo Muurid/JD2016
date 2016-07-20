@@ -1,16 +1,15 @@
 package by.it.vasilevich.project.java.dao;
 
-import by.it.vasilevich.project.java.dao.ConnectionCreator;
-
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.Statement;
 
-
-public abstract class AbstractDAO {
-
+public abstract class AbstractDAO{
+    public String lastSQL="";
+    //общая команда для Create Update Delete
     protected int executeUpdate(String sql) {
         int result = -1;
+        lastSQL="executeUpdate:"+sql;
         try (Connection connection = ConnectionCreator.getConnection();
              Statement statement = connection.createStatement()) {
             result = statement.executeUpdate(sql);

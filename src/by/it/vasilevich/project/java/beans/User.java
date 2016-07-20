@@ -13,12 +13,12 @@ public class User {
     public User() {
     }
 
-    public User(int id, String login, String password, String email, Integer fk_Role) {
+    public User(int id, String login, String password, String email, int FK_Role) {
         this.id = id;
         this.Login = login;
         this.Password = password;
         this.Email = email;
-        this.FK_Role = fk_Role;
+        this.FK_Role = FK_Role;
     }
 
 

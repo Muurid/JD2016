@@ -5,6 +5,8 @@ import javax.servlet.http.HttpServletRequest;
 public class ActionFactory {
     public ActionCommand defineCommand(HttpServletRequest request) {
         ActionCommand current = new CommandError();
+        if (request.getRequestURI().equals("/ss/"))
+            current=Action.INDEX.getCurrentCommand();
         // извлечение имени команды из запроса ?command=action_name
         String action = request.getParameter("command");
         // получение объекта, соответствующего команде

@@ -35,7 +35,7 @@ public class CommandAllUsers implements ActionCommand {
                     sessionUserRole = r;
             }
             //проверим имеет ли пользователь права на операцию
-            if (sessionUserRole!=null && !sessionUserRole.getRole().equals("administrator")) {
+            if (sessionUserRole!=null && !sessionUserRole.getRole().equals("Administrator")) {
                 frm.setErrorMessage("Операция невозможна. Недостаточно прав.");
             } else //иначе операция возможна.
             {
@@ -45,7 +45,7 @@ public class CommandAllUsers implements ActionCommand {
                     user.setEmail(frm.getString("Email"));   //почта
                     user.setLogin(frm.getString("Login"));   //логин
                     user.setPassword(frm.getString("Password"));
-                    user.setFK_Role(frm.getInt("fk_Role"));
+                    user.setFK_Role(frm.getInt("FK_Role"));
                     frm.setMessage(user.toString());
                     //Определим, это обновление или удаление.
                     if (0 < user.getId()) {
@@ -57,11 +57,15 @@ public class CommandAllUsers implements ActionCommand {
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
+
             }
+
+
         }
         //покажем всех пользователей, вне зависимости от проверки прав
         List<User> users = dao.user.getAll("");
         request.setAttribute("users", users);
         return Action.ALLUSERS.inPage;
+
     }
 }

@@ -61,6 +61,5 @@
         </div>
    <br>
    </c:forEach>
-   и т.д.
 
 <%@ include file="include/end-html.jsp" %>

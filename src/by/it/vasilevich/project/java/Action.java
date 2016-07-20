@@ -46,7 +46,7 @@ public enum Action {
     },
     ERROR {
         {
-//            this.command = new CommandLogout();
+//            this.command = new CommandError();
         }
     };
     protected ActionCommand command=new CommandError();

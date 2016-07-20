@@ -30,14 +30,14 @@ class FormHelper {
             throw new Exception("Not valid data");
     }
 
-//    public Double getDouble(String nameFieldForm) throws Exception {
-//        String value = request.getParameter(nameFieldForm);
-//        boolean res = (value != null && valid(value, "[.,0-9-]+"));
-//        if (res) {
-//            return Double.parseDouble(value);
-//        } else
-//            throw new Exception("Not valid data");
-//    }
+    public Double getDouble(String nameFieldForm) throws Exception {
+        String value = request.getParameter(nameFieldForm);
+        boolean res = (value != null && valid(value, "[.,0-9-]+"));
+        if (res) {
+            return Double.parseDouble(value);
+        } else
+            throw new Exception("Not valid data");
+    }
 
     public String getString(String nameFieldForm) throws Exception {
         String value = request.getParameter(nameFieldForm);
@@ -53,7 +53,7 @@ class FormHelper {
     }
 
     public void setMessage(String message){
-        request.setAttribute(by.it.vasilevich.project.java.Action.msgMessage, message);
+        request.setAttribute(Action.msgMessage, message);
     }
 
     public void setErrorMessage(String message){
