@@ -10,9 +10,9 @@ public class Runner {
             statement.executeUpdate("DROP TABLE IF EXISTS role ");
             statement.executeUpdate("DROP TABLE IF EXISTS rent ");
 
-            statement.executeUpdate("CREATE TABLE `seredajd0301test`.`role` ( `ID` INT(10) NOT NULL , `Role` VARCHAR(100) NOT NULL , PRIMARY KEY (`ID`)) ENGINE = InnoDB;");
-            statement.executeUpdate("CREATE TABLE `seredajd0301test`.`users` ( `ID` INT(10) NOT NULL AUTO_INCREMENT , `Login` VARCHAR(100) NOT NULL , `Password` VARCHAR(100) NOT NULL , `Email` VARCHAR(100) NOT NULL , `FK_Role` INT(10) NOT NULL , PRIMARY KEY (`ID`)) ENGINE = InnoDB;");
-            statement.executeUpdate("CREATE TABLE `seredajd0301test`.`rent` ( `ID` INT(10) NOT NULL AUTO_INCREMENT , `Adress` VARCHAR(100) NOT NULL , `Floor` INT(10) NOT NULL , `Guests` INT(10) NOT NULL , `Hotels` VARCHAR(100) NOT NULL , `Price` INT(10) NOT NULL , `Rating` INT(10) NOT NULL , `RoomCount` INT(10) NOT NULL , `FK_Users` INT NOT NULL , PRIMARY KEY (`ID`)) ENGINE = InnoDB;");
+            statement.executeUpdate("CREATE TABLE `seredatest`.`role` ( `ID` INT(10) NOT NULL , `Role` VARCHAR(100) NOT NULL , PRIMARY KEY (`ID`)) ENGINE = InnoDB;");
+            statement.executeUpdate("CREATE TABLE `seredatest`.`users` ( `ID` INT(10) NOT NULL AUTO_INCREMENT , `Login` VARCHAR(100) NOT NULL , `Password` VARCHAR(100) NOT NULL , `Email` VARCHAR(100) NOT NULL , `FK_Role` INT(10) NOT NULL , PRIMARY KEY (`ID`)) ENGINE = InnoDB;");
+            statement.executeUpdate("CREATE TABLE `seredatest`.`rent` ( `ID` INT(10) NOT NULL AUTO_INCREMENT , `Adress` VARCHAR(100) NOT NULL , `Floor` INT(10) NOT NULL , `Guests` INT(10) NOT NULL , `Hotels` VARCHAR(100) NOT NULL , `Price` INT(10) NOT NULL , `Rating` INT(10) NOT NULL , `RoomCount` INT(10) NOT NULL , `FK_Users` INT NOT NULL , PRIMARY KEY (`ID`)) ENGINE = InnoDB;");
 
             statement.executeUpdate("INSERT INTO `role` (`ID`, `Role`) VALUES ('1', 'administrator'), ('2', 'user');");
             statement.executeUpdate("INSERT INTO `users` (`ID`, `Login`, `Password`, `Email`, `FK_Role`) VALUES (NULL, 'admin', 'admin', 'admin@mail.com', '1');");
