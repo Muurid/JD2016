@@ -30,17 +30,22 @@ public class CommandLogin implements ActionCommand {
             if (user==null) {
                 request.setAttribute(
                         Action.msgMessage,
-                        "Неверные данные повторите ввод.");
+                        "Неверные данные повторите ввод!");
                 page = Action.LOGIN.inPage;
             } else {
                 request.setAttribute(
                         Action.msgMessage,
-                        "Добро пожаловать, "+user.getLogin());
+                        "Добро пожаловать! "+user.getLogin());
                 HttpSession session=request.getSession(true);
                 session.setAttribute("user",user);
                 page = Action.LOGIN.okPage;
             }
+        }else  {
+            request.setAttribute(
+                    Action.msgMessage,
+                    "Введите не менее трех и не более пятнадцати любых символов");
         }
         return page;
     }
+
 }

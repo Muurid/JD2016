@@ -2,6 +2,22 @@ package by.it.belsky.project.java;
 
 
 enum Action {
+    INDEX{
+        {
+            this.command = new CommandIndex();
+            this.inPage = "/index.jsp";
+            this.okPage = "/index.jsp";
+        }
+
+    },
+    ALLUSERS {
+        {
+            this.command = new CommandAllUsers();
+
+            this.inPage = "/emptyallusers.jsp";
+            this.okPage = "/allusers.jsp";
+        }
+    },
     SIGNUP {
         {
             this.command = new CommandSignUp();
@@ -32,7 +48,7 @@ enum Action {
     },
     ERROR {
         {
-            this.command = new CommandLogout();
+//            this.command = new CommandLogout();
 
         }
 
@@ -41,6 +57,7 @@ enum Action {
     public String inPage="/error.jsp";
     public String okPage ="/page.jsp";
     public String fPage ="/profilepage.jsp";
+    public String kPage ="/noforms.jsp";
 
     public ActionCommand command;
 

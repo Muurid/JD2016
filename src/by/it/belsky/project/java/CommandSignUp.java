@@ -47,6 +47,10 @@ public class CommandSignUp implements ActionCommand {
                         "Пользователь НЕ создан. Введите данные заново. " + dao.user.lastSQL);
                 page = Action.SIGNUP.inPage;
             }
+        } else  {
+            request.setAttribute(
+                    Action.msgMessage,
+                    "Введите не менее трех и не более пятнадцати любых символов");
         }
         return page;
     }

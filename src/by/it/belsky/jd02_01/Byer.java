@@ -39,7 +39,6 @@ private int number =0;
 
     }
 
-
     @Override
     public String toString() {
         return "Buyer N="+this.number;

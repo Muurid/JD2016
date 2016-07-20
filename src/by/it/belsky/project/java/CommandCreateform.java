@@ -11,14 +11,22 @@ public class CommandCreateform implements ActionCommand {
     @Override
     public String execute(HttpServletRequest request) {
         String page = Action.CREATEFORM.inPage;
+
         //проверим отправлены ли данные из формы, если нет, то покажем форму
         HttpSession session = request.getSession(true);
-        if (session.getAttribute("user") == null)
+        if (session.getAttribute("user") == null) {
+            request.setAttribute(
+                Action.msgMessage,
+                    "Авторизируйтесь либо пройдите регистрацию! ");
             return Action.ERROR.okPage;
+        }
 
         try {
             if (request.getParameter("CarModel") == null) {
-                return page;
+                request.setAttribute(
+                  Action.msgMessage,
+                   "Заполните форму ");
+                return Action.CREATEFORM.inPage;
             }
 
             Form form = new Form();

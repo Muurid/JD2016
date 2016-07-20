@@ -9,7 +9,6 @@ public class Utils {
        to=Math.max(to, from);
        int res=(int)(Math.random()*(to-from+1));
        res=from+res;
-
        return res;
     }
 }
