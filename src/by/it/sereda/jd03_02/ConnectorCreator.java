@@ -7,10 +7,10 @@ import java.sql.Driver;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 
-public class ConnectorDemo {
+public class ConnectorCreator {
 
     private static final String URL_DB =
-            "jdbc:mysql://127.0.0.1:2016/seredajd0302test"
+            "jdbc:mysql://127.0.0.1:2016/seredatest"
                     + "?useUnicode=true&characterEncoding=UTF-8";
     private static final String USER_DB = "root";
     private static final String PASSWORD_DB = "";
