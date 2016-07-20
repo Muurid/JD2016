@@ -2,10 +2,16 @@
 <%@ include file="include/begin-html.jsp" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
- <form class="form-horizontal" action="do?command=Index" method=POST>
+ <form class="form-horizontal" action="do?command=DeleteTour" method=POST>
  <fieldset>
+    <p>Name:<b>${user.name}</b></p>
+    <p>Login: <b>${user.login}</b></p>
+    <p>Email: <b>${user.email}</b></p>
+    <p>Address: <b>${user.address}</b></p>
+    <br/>
 
-    <legend>Список всех туров</legend>
+    <p><b>Мои Туры</b></p>
+    <legend>Список заказанных туров</legend>
 
        <div class="row">
          <div class="col-md-1">ID</div>
@@ -20,9 +26,9 @@
          <div class="col-md-1">Страховка</div>
        </div>
 
-  <c:forEach items="${tours}" var="tour">
+  <c:forEach items="${tours}" var="tour" >
          <div class="row">
-         <form class="form-tour-${tour.id}" action="do?command=Index" method=POST>
+         <form class="form-tour-${tour.id}" action="do?command=DeleteTour" method=POST>
              <div class=col-md-1>
                  <input id="tour_id_${tour.id}" name="id" type="text"
                  value="${tour.id}" class="form-control input-md">
@@ -77,7 +83,7 @@
     <br>
     </c:forEach>
 
- </fieldset>
+    </fieldset>
  </form>
 
 <%@ include file="include/end-html.jsp" %>

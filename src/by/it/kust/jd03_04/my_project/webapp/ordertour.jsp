@@ -2,13 +2,14 @@
 <%@ include file="include/begin-html.jsp" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
-<form class="form-horizontal" action="do?command=Index" method="post">
+<form class="form-horizontal" action="do?command=OrderTour" method=POST>
 <fieldset>
 
+<!-- Form Name -->
 <legend>Заказать тур</legend>
 
       <div class="row">
-        <div class="col-md-1">№</div>
+        <div class="col-md-1">ID</div>
         <div class="col-md-1">Страна</div>
         <div class="col-md-1">Город</div>
         <div class="col-md-1">Отель</div>
@@ -16,13 +17,13 @@
         <div class="col-md-1">Кол-во дней</div>
         <div class="col-md-1">Цена</div>
         <div class="col-md-1">Тип тура</div>
-        <div class="col-md-2">Перелет</div>
-        <div class="col-md-2">Страховка</div>
+        <div class="col-md-1">Перелет</div>
+        <div class="col-md-1">Страховка</div>
       </div>
 
-    <c:forEach items="${tours}" var="tour">
+ <c:forEach items="${tours}" var="tour">
         <div class="row">
-        <form class="form-tour-${tour.id}" action="do?command=Index" method="post">
+        <form class="form-tour-${tour.id}" action="do?command=OrderTour" method=POST>
             <div class=col-md-1>
                 <input id="tour_id_${tour.id}" name="id" type="text"
                 value="${tour.id}" class="form-control input-md">
@@ -56,20 +57,28 @@
                 <input id="textinput" name="type" type="text"
                 value="${tour.type}" class="form-control input-md">
             </div>
-            <div class=col-md-2>
+            <div class=col-md-1>
                 <input id="textinput" name="option1" type="text"
                 value="${tour.option1}" class="form-control input-md">
             </div>
-            <div class=col-md-2>
+            <div class=col-md-1>
                 <input id="textinput" name="option2" type="text"
                 value="${tour.option2}" class="form-control input-md">
             </div>
 
+            <div class=col-md-1>
+                <button id="singlebutton" name="singlebutton" class="btn btn-success">
+                    Добавить
+                </button>
+            </div>
+
+
         </form>
         </div>
-        <br>
-    </c:forEach>
+   <br>
+   </c:forEach>
 
 </fieldset>
 </form>
+
 <%@ include file="include/end-html.jsp" %>
